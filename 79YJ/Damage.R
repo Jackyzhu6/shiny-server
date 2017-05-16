@@ -1,15 +1,15 @@
 Damage <- function(data1,data2){
-  wugong1 <- as.numeric(as.character(data1[data1[,1] == "×îÐ¡Îï¹¥",2]))
-  wugong2 <- as.numeric(as.character(data1[data1[,1] == "×î´óÎï¹¥",2]))
-  fushang <- as.numeric(as.character(data1[data1[,1] == "¸½ÉË",2]))
-  zhuxin <- ceiling(as.numeric(as.character(data1[data1[,1] == "ÖïÐÄ",2]))/17.1)/100
+  wugong1 <- as.numeric(as.character(data1[data1[,1] == "æœ€å°ç‰©æ”»",2]))
+  wugong2 <- as.numeric(as.character(data1[data1[,1] == "æœ€å¤§ç‰©æ”»",2]))
+  fushang <- as.numeric(as.character(data1[data1[,1] == "é™„ä¼¤",2]))
+  zhuxin <- ceiling(as.numeric(as.character(data1[data1[,1] == "è¯›å¿ƒ",2]))/17.1)/100
   if(zhuxin > 0.25){zhuxin = 0.25}
-  renhuo <- as.numeric(as.character(data1[data1[,1] == "ÈË»ö",2]))/100
-  wanjun <- ceiling(as.numeric(as.character(data1[data1[,1] == "Íò¾û",2]))/17.1)/100
+  renhuo <- as.numeric(as.character(data1[data1[,1] == "äººç¥¸",2]))/100
+  wanjun <- ceiling(as.numeric(as.character(data1[data1[,1] == "ä¸‡é’§",2]))/17.1)/100
   if(wanjun > 0.25){zhuxin = 0.25}
-  wufang <- as.numeric(as.character(data2[data2[,1] == "Îï·À",2]))/6160
-  fafang <- as.numeric(as.character(data2[data2[,1] == "·¨·À",2]))/6160
-  zhibi <- as.numeric(as.character(data2[data2[,1] == "Öª±Ë",2]))/100
+  wufang <- as.numeric(as.character(data2[data2[,1] == "ç‰©é˜²",2]))/6160
+  fafang <- as.numeric(as.character(data2[data2[,1] == "æ³•é˜²",2]))/6160
+  zhibi <- as.numeric(as.character(data2[data2[,1] == "çŸ¥å½¼",2]))/100
   if (wufang > 0.8){wufang = 0.8}
   if (fafang > 0.8){fafang = 0.8}
   jizhong1 <- round(wugong1*(1-wufang)*(1-zhibi)*(1+renhuo) + fushang*(1-fafang)*(1-zhibi)*(1+renhuo),2)
@@ -21,6 +21,6 @@ Damage <- function(data1,data2){
   huixin1 <- round(wugong1*(1-wufang)*(1-zhibi)*(1+renhuo)*1.4 + fushang*(1-fafang)*(1-zhibi)*(1+renhuo)*1.4,2)
   huixin2 <- round(wugong1*(1-wufang)*(1-zhibi)*(1+renhuo)*1.6 + fushang*(1-fafang)*(1-zhibi)*(1+renhuo)*1.6,2)
   huixin <- paste(huixin1,huixin2,sep = " ~ ")
-  result <- data.frame(Ãû³Æ = c("ÆÕ¹¥»÷ÖÐ","ÆÕ¹¥Òªº¦","ÆÕ¹¥»áÐÄ"),ÉËº¦ = c(jizhong,yaohai,huixin))
+  result <- data.frame(åç§° = c("æ™®æ”»å‡»ä¸­","æ™®æ”»è¦å®³","æ™®æ”»ä¼šå¿ƒ"),ä¼¤å®³ = c(jizhong,yaohai,huixin))
   result
 }
