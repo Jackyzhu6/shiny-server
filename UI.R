@@ -38,8 +38,8 @@ shinyUI(fluidPage(
                   choices = c("无","有")),
       selectInput("buff4","兵解:",
                   choices = c("无","有")),
-#       selectInput("buff5","古剑通灵:",
-#                   choices = c("无","有")),
+      selectInput("buff5","古剑通灵:",
+                  choices = c("无","有")),
       selectInput("buff8","吴钩霜雪:",
                   choices = c("无","有")),
       selectInput("buff6","封缸酒:",
@@ -50,8 +50,10 @@ shinyUI(fluidPage(
       tabsetPanel(
         tabPanel("弈剑属性",dataTableOutput("mytable")),
         tabPanel("对手属性",dataTableOutput("mytable2")),
-        tabPanel("伤害数值",dataTableOutput("mytable3")),
-        tabPanel("期望伤害",dataTableOutput("mytable4"))
+        tabPanel("物理伤害数值",dataTableOutput("mytable3")),
+        tabPanel("期望物理伤害",dataTableOutput("mytable4")),
+        tabPanel("法术伤害数值",dataTableOutput("mytable5")),
+        tabPanel("期望法术伤害",dataTableOutput("mytable6"))
       )
     )
   ))

@@ -73,7 +73,7 @@ Damage <- function(data1,data2,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenq
   shenming <- as.numeric(as.character(data2[data2[,1] == "神明",2]))
   wufang <- as.numeric(as.character(data2[data2[,1] == "物防",2]))*(1 - 0.25*luoxu - 0.2*shuisheng)/6160
   wufang_pg <- as.numeric(as.character(data2[data2[,1] == "物防",2]))*(1 - 0.25*luoxu - 0.3*shuisheng)/6160
-  fafang <- as.numeric(as.character(data2[data2[,1] == "法防",2]))/6160
+  fafang <- as.numeric(as.character(data2[data2[,1] == "法防",2]))*(1 - 0.2*shuisheng)/6160
   zhibi <- as.numeric(as.character(data2[data2[,1] == "知彼",2]))/100
   yuxin <- ceiling(as.numeric(as.character(data2[data2[,1] == "御心",2]))/17.1)/100
   if(yuxin > 0.25){yuxin = 0.25}
@@ -147,19 +147,19 @@ Damage <- function(data1,data2,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenq
   lfhx2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong2 + 691)*1.6*(1+0.08*wugou)*(1-wufang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
                  + ((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 552)*1.6*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian),2)
   lfhx <- paste(lfhx1,lfhx2,sep = " ~ ")
-  lfhg1 <- round(lfjz1*0.4*(1+0.1*zidian),2)
-  lfhg2 <- round(lfjz1*0.6*(1+0.1*zidian),2)
+  lfhg1 <- round(lfjz1*0.4,2)
+  lfhg2 <- round(lfjz1*0.6,2)
   lfhg <- paste(lfhg1,lfhg2,sep = " ~ ")
-  lfhgyh1 <- round(lfyh1*0.4*(1+0.1*zidian),2)
-  lfhgyh2 <- round(lfyh1*0.6*(1+0.1*zidian),2)
+  lfhgyh1 <- round(lfyh1*0.4,2)
+  lfhgyh2 <- round(lfyh1*0.6,2)
   lfhgyh <- paste(lfhgyh1,lfhgyh2,sep = " ~ ")
   lfhj1 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong1 + 414)*(1-wufang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian)
                 + ((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 552)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian),2)
   lfhj2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong2 + 691)*(1-wufang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian) 
                 + ((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 552)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian),2)
   lfhj <- paste(lfhj1,lfhj2,sep = " ~ ")
-  lfhghj1 <- round(lfjz1*0.2*(1+0.1*zidian),2)
-  lfhghj2 <- round(lfjz1*0.3*(1+0.1*zidian),2)
+  lfhghj1 <- round(lfjz1*0.2,2)
+  lfhghj2 <- round(lfjz1*0.3,2)
   lfhghj <- paste(lfhghj1,lfhghj2,sep = " ~ ")
   
   elf <- mea(lfjz1,lfjz2)*pjnjz + mea(lfyh1,lfyh2)*pjnyh + mea(lfhx1,lfhx2)*pjnhx + mea(lfhg1,lfhg2)*pjnhg + 
@@ -180,19 +180,19 @@ Damage <- function(data1,data2,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenq
   gyhx2 <- round(((1.4+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong2 + 1044)*1.6*(1+0.08*wugou)*(1-wufang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
                  + ((1.4+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 835)*1.6*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian),2)
   gyhx <- paste(gyhx1,gyhx2,sep = " ~ ")
-  gyhg1 <- round(gyjz1*0.4*(1+0.1*zidian),2)
-  gyhg2 <- round(gyjz1*0.6*(1+0.1*zidian),2)
+  gyhg1 <- round(gyjz1*0.4,2)
+  gyhg2 <- round(gyjz1*0.6,2)
   gyhg <- paste(gyhg1,gyhg2,sep = " ~ ")
-  gyhgyh1 <- round(gyyh1*0.4*(1+0.1*zidian),2)
-  gyhgyh2 <- round(gyyh1*0.6*(1+0.1*zidian),2)
+  gyhgyh1 <- round(gyyh1*0.4,2)
+  gyhgyh2 <- round(gyyh1*0.6,2)
   gyhgyh <- paste(gyhgyh1,gyhgyh2,sep = " ~ ")
   gyhj1 <- round(((1.4+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong1 + 626)*(1-wufang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian)
                  + ((1.4+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 835)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian),2)
   gyhj2 <- round(((1.4+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong2 + 1044)*(1-wufang)*(1-zhibi)*(1+renhuo)*0.5 *(1+0.1*zidian)
                  + ((1.4+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 835)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian),2)
   gyhj <- paste(gyhj1,gyhj2,sep = " ~ ")
-  gyhghj1 <- round(gyjz1*0.2*(1+0.1*zidian),2)
-  gyhghj2 <- round(gyjz1*0.3*(1+0.1*zidian),2)
+  gyhghj1 <- round(gyjz1*0.2,2)
+  gyhghj2 <- round(gyjz1*0.3,2)
   gyhghj <- paste(gyhghj1,gyhghj2,sep = " ~ ")
   
   egy <- mea(gyjz1,gyjz2)*pjnjz + mea(gyyh1,gyyh2)*pjnyh + mea(gyhx1,gyhx2)*pjnhx + mea(gyhg1,gyhg2)*pjnhg + 
@@ -213,19 +213,19 @@ Damage <- function(data1,data2,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenq
   skhx2 <- round(((1.2+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong2 + 0)*1.6*(1+0.08*wugou)*(1-wufang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
                  + ((1.2+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 700)*1.6*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian),2)
   skhx <- paste(skhx1,skhx2,sep = " ~ ")
-  skhg1 <- round(skjz1*0.4*(1+0.1*zidian),2)
-  skhg2 <- round(skjz1*0.6*(1+0.1*zidian),2)
+  skhg1 <- round(skjz1*0.4,2)
+  skhg2 <- round(skjz1*0.6,2)
   skhg <- paste(skhg1,skhg2,sep = " ~ ")
-  skhgyh1 <- round(skyh1*0.4*(1+0.1*zidian),2)
-  skhgyh2 <- round(skyh1*0.6*(1+0.1*zidian),2)
+  skhgyh1 <- round(skyh1*0.4,2)
+  skhgyh2 <- round(skyh1*0.6,2)
   skhgyh <- paste(skhgyh1,skhgyh2,sep = " ~ ")
   skhj1 <- round(((1.2+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong1 + 0)*(1-wufang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian)
                  + ((1.2+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 700)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian),2)
   skhj2 <- round(((1.2+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong2 + 0)*(1-wufang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian) 
                  + ((1.2+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 700)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian),2)
   skhj <- paste(skhj1,skhj2,sep = " ~ ")
-  skhghj1 <- round(skjz1*0.2*(1+0.1*zidian),2)
-  skhghj2 <- round(skjz1*0.3*(1+0.1*zidian),2)
+  skhghj1 <- round(skjz1*0.2,2)
+  skhghj2 <- round(skjz1*0.3,2)
   skhghj <- paste(skhghj1,skhghj2,sep = " ~ ")
   
   esk <- mea(skjz1,skjz2)*pjnjz + mea(skyh1,skyh2)*pjnyh + mea(skhx1,skhx2)*pjnhx + mea(skhg1,skhg2)*pjnhg + 
@@ -246,19 +246,19 @@ Damage <- function(data1,data2,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenq
   qjhx2 <- round(((0.75+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong2 + 300)*1.6*(1+0.08*wugou)*(1-wufang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
                  + ((0.75+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 0)*1.6*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian),2)
   qjhx <- paste(qjhx1,qjhx2,sep = " ~ ")
-  qjhg1 <- round(qjjz1*0.4*(1+0.1*zidian),2)
-  qjhg2 <- round(qjjz1*0.6*(1+0.1*zidian),2)
+  qjhg1 <- round(qjjz1*0.4,2)
+  qjhg2 <- round(qjjz1*0.6,2)
   qjhg <- paste(qjhg1,qjhg2,sep = " ~ ")
-  qjhgyh1 <- round(qjyh1*0.4*(1+0.1*zidian),2)
-  qjhgyh2 <- round(qjyh1*0.6*(1+0.1*zidian),2)
+  qjhgyh1 <- round(qjyh1*0.4,2)
+  qjhgyh2 <- round(qjyh1*0.6,2)
   qjhgyh <- paste(qjhgyh1,qjhgyh2,sep = " ~ ")
   qjhj1 <- round(((0.75+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong1 + 300)*(1-wufang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian)
                  + ((0.75+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 0)*(1-fafang)*(1-zhibi)*(1+renhuo),2)
   qjhj2 <- round(((0.75+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*wugong2 + 300)*(1-wufang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian) 
                  + ((0.75+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fushang + 0)*(1-fafang)*(1-zhibi)*(1+renhuo),2)
   qjhj <- paste(qjhj1,qjhj2,sep = " ~ ")
-  qjhghj1 <- round(qjjz1*0.2*(1+0.1*zidian),2)
-  qjhghj2 <- round(qjjz1*0.3*(1+0.1*zidian),2)
+  qjhghj1 <- round(qjjz1*0.2,2)
+  qjhghj2 <- round(qjjz1*0.3,2)
   qjhghj <- paste(qjhghj1,qjhghj2,sep = " ~ ")
   
   eqj <- 4*(mea(qjjz1,qjjz2)*pjnjz + mea(qjyh1,qjyh2)*pjnyh + mea(qjhx1,qjhx2)*pjnhx + mea(qjhg1,qjhg2)*pjnhg + 
@@ -269,7 +269,7 @@ Damage <- function(data1,data2,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenq
                               "归元击中","归元要害","归元会心","归元滑过","归元滑过要害","归元化解","归元滑过化解",
                               "疏狂把酒击中","疏狂把酒要害","疏狂把酒会心","疏狂把酒滑过","疏狂把酒滑过要害","疏狂把酒化解","疏狂把酒滑过化解",
                               "单次七剑天山击中","单次七剑天山要害","单次七剑天山会心","单次七剑天山滑过","单次七剑天山滑过要害","单次七剑天山化解","单次七剑天山滑过化解"),
-                         伤害或吟唱时间 = c(duokai,jizhong,yaohai,huixin,huajie,
+                         伤害 = c(duokai,jizhong,yaohai,huixin,huajie,
                                      lfjz,lfyh,lfhx,lfhg,lfhgyh,lfhj,lfhghj,
                                      gyjz,gyyh,gyhx,gyhg,gyhgyh,gyhj,gyhghj,
                                      skjz,skyh,skhx,skhg,skhgyh,skhj,skhghj,
@@ -277,6 +277,156 @@ Damage <- function(data1,data2,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenq
                          概率 = p, stringsAsFactors = FALSE)
   result2 <- data.frame(名称 = c("普攻","流风","归元","疏狂把酒","七剑天山四次"),
                           期望伤害 = round(c(epg,elf,egy,esk,eqj),2),stringsAsFactors = FALSE)
+  r <- list("r1" = result1,"r2" = result2)
+  return(r)
+}
+
+Damage_magic <- function(data1,data2,tingyu,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenqi,ligui,qiangdao,linghou,xinyan){
+  mingzhong <- as.numeric(as.character(data1[data1[,1] == "命中",2]))
+  huixin <- as.numeric(as.character(data1[data1[,1] == "会心",2]))
+  jiyu <- as.numeric(as.character(data1[data1[,1] == "疾语",2]))
+  fagong1 <- as.numeric(as.character(data1[data1[,1] == "最小法攻",2]))
+  fagong2 <- as.numeric(as.character(data1[data1[,1] == "最大法攻",2]))
+  zhuxin <- ceiling(as.numeric(as.character(data1[data1[,1] == "诛心",2]))/17.1)/100
+  if(zhuxin > 0.25){zhuxin = 0.25}
+  renhuo <- as.numeric(as.character(data1[data1[,1] == "人祸",2]))/100
+  huibi <- as.numeric(as.character(data2[data2[,1] == "回避",2]))
+  shenming <- as.numeric(as.character(data2[data2[,1] == "神明",2]))
+  fafang <- as.numeric(as.character(data2[data2[,1] == "法防",2]))*(1 - 0.2*shuisheng)/6160
+  zhibi <- as.numeric(as.character(data2[data2[,1] == "知彼",2]))/100
+  yuxin <- ceiling(as.numeric(as.character(data2[data2[,1] == "御心",2]))/17.1)/100
+  if(yuxin > 0.25){yuxin = 0.25}
+  if (fafang > 0.8){fafang = 0.8}
+  
+  jz <- (mingzhong + 2580*xinyan - huibi)/2580 + 0.85 + 0.1*shuisheng + 0.15*ligui
+  if (jz < 0){jz = 0} else if (jz > 1){jz = 1}
+  jz_jx <- (mingzhong + 850 + 2580*xinyan - huibi)/2580 + 0.85 + 0.1*shuisheng + 0.15*ligui
+  if (jz_jx < 0){jz_jx = 0} else if (jz_jx > 1){jz_jx = 1}
+  hx <- (huixin - shenming)/3080 + 0.1*shenqi + 0.08*linghou
+  if (hx < 0){hx = 0} else if (hx > 1){hx = 1}
+  
+  pjnhx <- hx
+  pjnhj <- 0
+  pjnjz <- (1 - hx)*jz
+  pjnjz_jx <- (1 - hx)*jz_jx
+  pjnhg <- (1-hx)*(1 - jz)
+  pjnhg_jx <- (1 - hx)*(1 - jz_jx)
+  pjnhghj <- 0
+  p <- c(rep(c(pjnjz,pjnhx,pjnhg,pjnhj,pjnhghj),3),pjnjz_jx,pjnhx,pjnhg_jx,pjnhj,pjnhghj)
+  p <- paste(round(100*p,2),"%",sep = "")
+  
+  syjz1 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong1 + 391)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                   ,2)
+  syjz2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 652)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian) 
+                 ,2)
+  syjz <- paste(syjz1,syjz2,sep = " ~ ")
+  
+  syhx1 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 652)*1.4*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  syhx2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 652)*1.6*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  syhx <- paste(syhx1,syhx2,sep = " ~ ")
+  syhg1 <- round(syjz1*0.4,2)
+  syhg2 <- round(syjz1*0.6,2)
+  syhg <- paste(syhg1,syhg2,sep = " ~ ")
+  syhj1 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong1 + 391)*(1-fafang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian)
+                 ,2)
+  syhj2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 652)*(1-fafang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian) 
+                 ,2)
+  syhj <- paste(syhj1,syhj2,sep = " ~ ")
+  syhghj1 <- round(syjz1*0.2,2)
+  syhghj2 <- round(syjz1*0.3,2)
+  syhghj <- paste(syhghj1,syhghj2,sep = " ~ ")
+  mea <- function(a,b){(a+b)/2}
+  esy <- mea(syjz1,syjz2)*pjnjz +mea(syhx1,syhx2)*pjnhx + mea(syhg1,syhg2)*pjnhg + 
+              mea(syhghj1,syhghj2)*pjnhghj
+  
+  lhjz1 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*(fagong1 + 414*tingyu) + 414)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  lhjz2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*(fagong2 + 414*tingyu) + 691)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian) 
+                 ,2)
+  lhjz <- paste(lhjz1,lhjz2,sep = " ~ ")
+  
+  lhhx1 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*(fagong2 + 414*tingyu) + 414)*1.4*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  lhhx2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*(fagong2 + 414*tingyu) + 691)*1.6*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  lhhx <- paste(lhhx1,lhhx2,sep = " ~ ")
+  lhhg1 <- round(lhjz1*0.4,2)
+  lhhg2 <- round(lhjz1*0.6,2)
+  lhhg <- paste(lhhg1,lhhg2,sep = " ~ ")
+  lhhj1 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*(fagong1 + 414*tingyu) + 414)*(1-fafang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian)
+                 ,2)
+  lhhj2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*(fagong2 + 414*tingyu) + 691)*(1-fafang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian) 
+                 ,2)
+  lhhj <- paste(lhhj1,lhhj2,sep = " ~ ")
+  lhhghj1 <- round(lhjz1*0.2,2)
+  lhhghj2 <- round(lhjz1*0.3,2)
+  lhhghj <- paste(lhhghj1,lhhghj2,sep = " ~ ")
+  elh <- mea(lhjz1,lhjz2)*pjnjz +mea(lhhx1,lhhx2)*pjnhx + mea(lhhg1,lhhg2)*pjnhg + 
+    mea(lhhghj1,lhhghj2)*pjnhghj
+  
+  ygjz1 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong1 + 843)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  ygjz2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 1406)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian) 
+                 ,2)
+  ygjz <- paste(ygjz1,ygjz2,sep = " ~ ")
+  
+  yghx1 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 843)*1.4*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  yghx2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 1406)*1.6*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  yghx <- paste(yghx1,yghx2,sep = " ~ ")
+  yghg1 <- round(ygjz1*0.4,2)
+  yghg2 <- round(ygjz1*0.6,2)
+  yghg <- paste(yghg1,yghg2,sep = " ~ ")
+  yghj1 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong1 + 843)*(1-fafang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian)
+                 ,2)
+  yghj2 <- round(((1.1+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 1406)*(1-fafang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian) 
+                 ,2)
+  yghj <- paste(yghj1,yghj2,sep = " ~ ")
+  yghghj1 <- round(ygjz1*0.2,2)
+  yghghj2 <- round(ygjz1*0.3,2)
+  yghghj <- paste(yghghj1,yghghj2,sep = " ~ ")
+  mea <- function(a,b){(a+b)/2}
+  eyg <- mea(ygjz1,ygjz2)*pjnjz +mea(yghx1,yghx2)*pjnhx + mea(yghg1,yghg2)*pjnhg + 
+    mea(yghghj1,yghghj2)*pjnhghj
+  
+  jxjz1 <- round(((1.5+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong1 + 2741)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  jxjz2 <- round(((1.5+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 4569)*(1-fafang)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian) 
+                 ,2)
+  jxjz <- paste(jxjz1,jxjz2,sep = " ~ ")
+  
+  jxhx1 <- round(((1.5+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 4569)*1.4*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  jxhx2 <- round(((1.5+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 4569)*1.6*(1+0.08*wugou)*(1-fafang)*(1+zhuxin)*(1+0.15*qiangdao)*(1-yuxin)*(1-zhibi)*(1+renhuo)*(1+0.1*zidian)
+                 ,2)
+  jxhx <- paste(jxhx1,jxhx2,sep = " ~ ")
+  jxhg1 <- round(jxjz1*0.4,2)
+  jxhg2 <- round(jxjz1*0.6,2)
+  jxhg <- paste(jxhg1,jxhg2,sep = " ~ ")
+  jxhj1 <- round(((1.5+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong1 + 2741)*(1-fafang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian)
+                 ,2)
+  jxhj2 <- round(((1.5+menghu*0.15+shenqi*0.1)*(1+0.3*weiyang)*fagong2 + 4569)*(1-fafang)*(1-zhibi)*(1+renhuo)*0.5*(1+0.1*zidian) 
+                 ,2)
+  jxhj <- paste(jxhj1,jxhj2,sep = " ~ ")
+  jxhghj1 <- round(jxjz1*0.2,2)
+  jxhghj2 <- round(jxjz1*0.3,2)
+  jxhghj <- paste(jxhghj1,jxhghj2,sep = " ~ ")
+  mea <- function(a,b){(a+b)/2}
+  ejx <- mea(jxjz1,jxjz2)*pjnjz_jx +mea(jxhx1,jxhx2)*pjnhx + mea(jxhg1,jxhg2)*pjnhg_jx + 
+    mea(jxhghj1,jxhghj2)*pjnhghj
+  
+  result1 <- data.frame(名称 = c("三阳真火诀击中","三阳真火诀会心","三阳真火诀滑过","三阳真火诀化解","三阳真火诀滑过化解",
+                               "六合寒水诀击中","六合寒水诀会心","六合寒水诀滑过","六合寒水诀化解","六合寒水诀滑过化解",
+                               "有归于无击中","有归于无会心","有归于无滑过","有归于无化解","有归于无滑过化解",
+                               "九玄天元诀击中","九玄天元诀会心","九玄天元诀滑过","九玄天元诀化解","九玄天元诀滑过化解"),
+                          伤害 = c(syjz,syhx,syhg,syhj,syhghj,lhjz,lhhx,lhhg,lhhj,lhhghj,ygjz,yghx,yghg,yghj,yghghj,
+                                 jxjz,jxhx,jxhg,jxhj,jxhghj),
+                          概率 = p, stringsAsFactors = FALSE)
+  result2 <- data.frame(名称 = c("三阳真火诀","六合寒水诀","有归于无","九玄天元诀"),
+                          期望伤害 = round(c(esy,elh,eyg,ejx),2),stringsAsFactors = FALSE)
   r <- list("r1" = result1,"r2" = result2)
   return(r)
 }
@@ -294,12 +444,38 @@ shinyServer(function(input, output) {
     bingjie <- 0
     xinyan <- 0
     weiyang <- 0
+    zidian <- 0
+    wugou <- 0
+    menghu <- 0
+    shuisheng <- 0
+    luoxu <- 0
+    shenqi <- 0
+    ligui <- 0
+    qiangdao <- 0
+    linghou <- 0
+    bingjie <- 0
+    xinyan <- 0
+    gujian <- 0
+    luanhong <- 0
     if (input$buff3 == "有"){weiyang <- 1}
     if (input$buff4 == "有"){bingjie <- 1}
     if (input$buff6 == "有"){fenggang <- 1}
     if (input$buff11 == "有"){xinyan <- 1}
+    if (input$buff5 == "有"){gujian <- 1}
+    if (input$buff1 == "有且开启落絮随风"){
+      luoxu <- 1
+    }
+    if (input$buff8 == "有"){
+      wugou <- 1
+    }
+    if (input$buff2 != "无"){
+      luanhong <- 1
+    }
     validate(need(bingjie*fenggang == 0, "兵解和封缸酒不能共存"))
     validate(need(xinyan*weiyang == 0, "心眼和威扬不能共存"))
+    validate(need(gujian*wugou == 0, "古剑通灵和吴钩霜雪不能共存"))
+    validate(need(gujian*luoxu == 0, "古剑通灵和落絮随风不能共存"))
+    validate(need(gujian*luanhong == 0, "古剑通灵和乱红千点不能共存"))
     
     if (input$buff9 == "猛虎"){
       yjbang[yjbang[,1] == "最小物攻",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*1.1
@@ -436,12 +612,38 @@ shinyServer(function(input, output) {
     bingjie <- 0
     xinyan <- 0
     weiyang <- 0
+    zidian <- 0
+    wugou <- 0
+    menghu <- 0
+    shuisheng <- 0
+    luoxu <- 0
+    shenqi <- 0
+    ligui <- 0
+    qiangdao <- 0
+    linghou <- 0
+    bingjie <- 0
+    xinyan <- 0
+    gujian <- 0
+    luanhong <- 0
     if (input$buff3 == "有"){weiyang <- 1}
     if (input$buff4 == "有"){bingjie <- 1}
     if (input$buff6 == "有"){fenggang <- 1}
     if (input$buff11 == "有"){xinyan <- 1}
+    if (input$buff5 == "有"){gujian <- 1}
+    if (input$buff1 == "有且开启落絮随风"){
+      luoxu <- 1
+    }
+    if (input$buff8 == "有"){
+      wugou <- 1
+    }
+    if (input$buff2 != "无"){
+      luanhong <- 1
+    }
     validate(need(bingjie*fenggang == 0, "兵解和封缸酒不能共存"))
     validate(need(xinyan*weiyang == 0, "心眼和威扬不能共存"))
+    validate(need(gujian*wugou == 0, "古剑通灵和吴钩霜雪不能共存"))
+    validate(need(gujian*luoxu == 0, "古剑通灵和落絮随风不能共存"))
+    validate(need(gujian*luanhong == 0, "古剑通灵和乱红千点不能共存"))
     if (input$buff9 == "猛虎"){
       yjbang[yjbang[,1] == "最小物攻",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*1.1
       yjbang[yjbang[,1] == "最大物攻",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*1.1
@@ -614,12 +816,38 @@ shinyServer(function(input, output) {
       bingjie <- 0
       xinyan <- 0
       weiyang <- 0
+      zidian <- 0
+      wugou <- 0
+      menghu <- 0
+      shuisheng <- 0
+      luoxu <- 0
+      shenqi <- 0
+      ligui <- 0
+      qiangdao <- 0
+      linghou <- 0
+      bingjie <- 0
+      xinyan <- 0
+      gujian <- 0
+      luanhong <- 0
       if (input$buff3 == "有"){weiyang <- 1}
       if (input$buff4 == "有"){bingjie <- 1}
       if (input$buff6 == "有"){fenggang <- 1}
       if (input$buff11 == "有"){xinyan <- 1}
+      if (input$buff5 == "有"){gujian <- 1}
+      if (input$buff1 == "有且开启落絮随风"){
+        luoxu <- 1
+      }
+      if (input$buff8 == "有"){
+        wugou <- 1
+      }
+      if (input$buff2 != "无"){
+        luanhong <- 1
+      }
       validate(need(bingjie*fenggang == 0, "兵解和封缸酒不能共存"))
       validate(need(xinyan*weiyang == 0, "心眼和威扬不能共存"))
+      validate(need(gujian*wugou == 0, "古剑通灵和吴钩霜雪不能共存"))
+      validate(need(gujian*luoxu == 0, "古剑通灵和落絮随风不能共存"))
+      validate(need(gujian*luanhong == 0, "古剑通灵和乱红千点不能共存"))
       
       if (input$buff9 == "猛虎"){
         yjbang[yjbang[,1] == "最小物攻",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*1.1
@@ -776,6 +1004,398 @@ shinyServer(function(input, output) {
       }
       Damage(yjbang0,bxbang,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenqi,ligui,qiangdao,linghou,xinyan)$r2
     })
+    
+    damage_magic <- reactive({
+      yjbang <- informationofYJrole(input$url)
+      validate(
+        need(yjbang[2,2] == "79" & yjbang[3,2] == "弈剑听雨阁",
+             message  = "您要查询的玩家并非79级弈剑听雨阁门人")
+      )
+      bxbang <- informationofYJrole(input$url2)
+      validate(
+        need(bxbang[2,2] == "79",
+             message  = "您要查询的对手并非79级")
+      )
+      fenggang <- 0
+      bingjie <- 0
+      xinyan <- 0
+      weiyang <- 0
+      zidian <- 0
+      wugou <- 0
+      menghu <- 0
+      shuisheng <- 0
+      luoxu <- 0
+      shenqi <- 0
+      ligui <- 0
+      qiangdao <- 0
+      linghou <- 0
+      bingjie <- 0
+      xinyan <- 0
+      gujian <- 0
+      luanhong <- 0
+      tingyu <- 0
+      
+      if (input$buff3 == "有"){weiyang <- 1}
+      if (input$buff4 == "有"){bingjie <- 1}
+      if (input$buff6 == "有"){fenggang <- 1}
+      if (input$buff11 == "有"){xinyan <- 1}
+      if (input$buff5 == "有"){gujian <- 1}
+      if (input$buff1 == "有且开启落絮随风"){
+        luoxu <- 1
+      }
+      if (input$buff8 == "有"){
+        wugou <- 1
+      }
+      if (input$buff2 != "无"){
+        luanhong <- 1
+      }
+      validate(need(bingjie*fenggang == 0, "兵解和封缸酒不能共存"))
+      validate(need(xinyan*weiyang == 0, "心眼和威扬不能共存"))
+      validate(need(gujian*wugou == 0, "古剑通灵和吴钩霜雪不能共存"))
+      validate(need(gujian*luoxu == 0, "古剑通灵和落絮随风不能共存"))
+      validate(need(gujian*luanhong == 0, "古剑通灵和乱红千点不能共存"))
+      if (input$buff9 == "猛虎"){
+        yjbang[yjbang[,1] == "最小物攻",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*1.1
+        yjbang[yjbang[,1] == "最大物攻",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*1.1
+        yjbang[yjbang[,1] == "命中",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "命中",2]))*1.08
+        yjbang[yjbang[,1] == "重击",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "重击",2]))*1.1
+      }
+      if (input$buff9 == "水生"){
+        yjbang[yjbang[,1] == "命中",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "命中",2]))*1.1
+        yjbang[yjbang[,1] == "回避",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "回避",2]))*1.1
+      }
+      if (input$buff9 == "蜃气"){
+        yjbang[yjbang[,1] == "命中",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "命中",2]))*1.15
+        yjbang[yjbang[,1] == "疾语",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "疾语",2])) + 5
+        yjbang[yjbang[,1] == "生命值",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "生命值",2]))*1.07
+      }
+      if (input$buff9 == "仙狐"){
+        yjbang[yjbang[,1] == "人祸",2]<-(as.numeric(as.character(yjbang[yjbang[,1] == "人祸",2])) + 100)*1.2 - 100
+        yjbang[yjbang[,1] == "疾语",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "疾语",2])) + 10
+        yjbang[yjbang[,1] == "追电",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "追电",2]))*1.05
+        yjbang[yjbang[,1] == "生命值",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "生命值",2]))*0.85
+      }
+      if (input$buff9 == "厉鬼"){
+        yjbang[yjbang[,1] == "追电",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "追电",2]))*1.08
+        yjbang[yjbang[,1] == "回避",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "回避",2]))*1.1
+      }
+      if (input$buff9 == "强盗"){
+        yjbang[yjbang[,1] == "命中",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "命中",2]))*1.15 + 150
+        yjbang[yjbang[,1] == "会心",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "会心",2]))*1.05
+        yjbang[yjbang[,1] == "回避",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "回避",2]))*1.05
+        yjbang[yjbang[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*1.1
+        if (as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2])) > 
+            as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))){
+          yjbang[yjbang[,1] == "最大物攻",2] <- 
+            as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))
+        }
+      }
+      if (input$buff9 == "灵猴"){
+        yjbang[yjbang[,1] == "命中",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "命中",2]))*1.05
+        yjbang[yjbang[,1] == "附伤",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "附伤",2]))*1.11 + 270
+        yjbang[yjbang[,1] == "追电",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "追电",2]))*1.05
+      }
+      yjbang0 <- yjbang
+      if (input$buff7 == "有"){
+        tingyu <- 1
+        yjbang0[yjbang0[,1] == "附伤",2]<-as.numeric(as.character(yjbang0[yjbang0[,1] == "附伤",2])) + 414
+      }
+      if (input$buff5 == "有"){
+        yjbang[yjbang[,1] == "人祸",2]<-(as.numeric(as.character(yjbang[yjbang[,1] == "人祸",2])) + 100)*1.3 - 100
+      }
+      if (input$buff1 == "有但未开启落絮随风" | input$buff1 == "有且开启落絮随风"){
+        yjbang0[yjbang0[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*0.32
+        yjbang0[yjbang0[,1] == "最大物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*0.32
+        yjbang0[yjbang0[,1] == "重击",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "重击",2])) + 864
+      }
+      if (input$buff4 == "有"){
+        yjbang0[yjbang0[,1] == "最小法攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小法攻",2])) + 377
+        yjbang0[yjbang0[,1] == "最大法攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大法攻",2])) + 629
+      }
+      if (input$buff2 == "85% ~ 100%血"){
+        yjbang0[yjbang0[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*0.4 + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小法攻",2]))*0.1
+        yjbang0[yjbang0[,1] == "最大物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*0.4 +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大法攻",2]))*0.1
+        yjbang0[yjbang0[,1] == "会心",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "会心",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "会心",2]))*0.1
+        yjbang0[yjbang0[,1] == "重击",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "重击",2])) + 140
+      } else if (input$buff2 == "60% ~ 85%血"){
+        yjbang0[yjbang0[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*0.6 + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小法攻",2]))*0.11
+        yjbang0[yjbang0[,1] == "最大物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*0.6 +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大法攻",2]))*0.11
+        yjbang0[yjbang0[,1] == "会心",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "会心",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "会心",2]))*0.15
+        yjbang0[yjbang0[,1] == "重击",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "重击",2])) + 200
+      } else if (input$buff2 == "35% ~ 60%血"){
+        yjbang0[yjbang0[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*0.8 + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小法攻",2]))*0.13
+        yjbang0[yjbang0[,1] == "最大物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*0.8 +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大法攻",2]))*0.13
+        yjbang0[yjbang0[,1] == "会心",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "会心",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "会心",2]))*0.2
+        yjbang0[yjbang0[,1] == "重击",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "重击",2])) + 260
+      } else if (input$buff2 == "35%血以下"){
+        yjbang0[yjbang0[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*1 + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小法攻",2]))*0.13
+        yjbang0[yjbang0[,1] == "最大物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*1 +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大法攻",2]))*0.15
+        yjbang0[yjbang0[,1] == "会心",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "会心",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "会心",2]))*0.25
+        yjbang0[yjbang0[,1] == "重击",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "重击",2])) + 320
+      }
+      if (input$buff6 == "有"){
+        x<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang0[yjbang0[,1] == "最小法攻",2]))
+        y<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) +
+          as.numeric(as.character(yjbang0[yjbang0[,1] == "最大法攻",2]))
+        yjbang0[yjbang0[,1] == "最小物攻",2] <- x
+        yjbang0[yjbang0[,1] == "最小法攻",2] <- x
+        yjbang0[yjbang0[,1] == "最大物攻",2] <- y
+        yjbang0[yjbang0[,1] == "最大法攻",2] <- y
+      }
+      
+      
+      if (input$buff10 == "有"){
+        bxbang[bxbang[,1] == "回避",2]<-as.numeric(as.character(bxbang[bxbang[,1] == "回避",2]))*0.25
+        zidian <- 1
+      }
+      if (input$buff3 == "有"){
+        weiyang <- 1
+      }
+      
+      if (input$buff9 == "猛虎"){
+        menghu <- 1
+      }
+      if (input$buff9 == "水生"){
+        shuisheng <- 1
+      }
+      if (input$buff9 == "蜃气"){
+        shenqi <- 1
+      }
+      
+      if (input$buff9 == "厉鬼"){
+        bxbang[bxbang[,1] == "回避",2]<-as.numeric(as.character(bxbang[bxbang[,1] == "回避",2]))*0.85
+        ligui <- 1
+      }
+      if (input$buff9 == "强盗"){
+        qiangdao <- 1
+      }
+      if (input$buff9 == "灵猴"){
+        linghou <- 1
+      }
+      if (input$buff11 == "有"){
+        xinyan <- 1
+      }
+      Damage_magic(yjbang0,bxbang,tingyu,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenqi,ligui,qiangdao,linghou,xinyan)$r1
+    })
+    
+    damage_magic_exp <- reactive({
+      yjbang <- informationofYJrole(input$url)
+      validate(
+        need(yjbang[2,2] == "79" & yjbang[3,2] == "弈剑听雨阁",
+             message  = "您要查询的玩家并非79级弈剑听雨阁门人")
+      )
+      bxbang <- informationofYJrole(input$url2)
+      validate(
+        need(bxbang[2,2] == "79",
+             message  = "您要查询的对手并非79级")
+      )
+      fenggang <- 0
+      bingjie <- 0
+      xinyan <- 0
+      weiyang <- 0
+      zidian <- 0
+      wugou <- 0
+      menghu <- 0
+      shuisheng <- 0
+      luoxu <- 0
+      shenqi <- 0
+      ligui <- 0
+      qiangdao <- 0
+      linghou <- 0
+      bingjie <- 0
+      xinyan <- 0
+      gujian <- 0
+      luanhong <- 0
+      tingyu <- 0
+      
+      if (input$buff3 == "有"){weiyang <- 1}
+      if (input$buff4 == "有"){bingjie <- 1}
+      if (input$buff6 == "有"){fenggang <- 1}
+      if (input$buff11 == "有"){xinyan <- 1}
+      if (input$buff5 == "有"){gujian <- 1}
+      if (input$buff1 == "有且开启落絮随风"){
+        luoxu <- 1
+      }
+      if (input$buff8 == "有"){
+        wugou <- 1
+      }
+      if (input$buff2 != "无"){
+        luanhong <- 1
+      }
+      validate(need(bingjie*fenggang == 0, "兵解和封缸酒不能共存"))
+      validate(need(xinyan*weiyang == 0, "心眼和威扬不能共存"))
+      validate(need(gujian*wugou == 0, "古剑通灵和吴钩霜雪不能共存"))
+      validate(need(gujian*luoxu == 0, "古剑通灵和落絮随风不能共存"))
+      validate(need(gujian*luanhong == 0, "古剑通灵和乱红千点不能共存"))
+      if (input$buff9 == "猛虎"){
+        yjbang[yjbang[,1] == "最小物攻",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*1.1
+        yjbang[yjbang[,1] == "最大物攻",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*1.1
+        yjbang[yjbang[,1] == "命中",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "命中",2]))*1.08
+        yjbang[yjbang[,1] == "重击",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "重击",2]))*1.1
+      }
+      if (input$buff9 == "水生"){
+        yjbang[yjbang[,1] == "命中",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "命中",2]))*1.1
+        yjbang[yjbang[,1] == "回避",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "回避",2]))*1.1
+      }
+      if (input$buff9 == "蜃气"){
+        yjbang[yjbang[,1] == "命中",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "命中",2]))*1.15
+        yjbang[yjbang[,1] == "疾语",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "疾语",2])) + 5
+        yjbang[yjbang[,1] == "生命值",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "生命值",2]))*1.07
+      }
+      if (input$buff9 == "仙狐"){
+        yjbang[yjbang[,1] == "人祸",2]<-(as.numeric(as.character(yjbang[yjbang[,1] == "人祸",2])) + 100)*1.2 - 100
+        yjbang[yjbang[,1] == "疾语",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "疾语",2])) + 10
+        yjbang[yjbang[,1] == "追电",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "追电",2]))*1.05
+        yjbang[yjbang[,1] == "生命值",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "生命值",2]))*0.85
+      }
+      if (input$buff9 == "厉鬼"){
+        yjbang[yjbang[,1] == "追电",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "追电",2]))*1.08
+        yjbang[yjbang[,1] == "回避",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "回避",2]))*1.1
+      }
+      if (input$buff9 == "强盗"){
+        yjbang[yjbang[,1] == "命中",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "命中",2]))*1.15 + 150
+        yjbang[yjbang[,1] == "会心",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "会心",2]))*1.05
+        yjbang[yjbang[,1] == "回避",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "回避",2]))*1.05
+        yjbang[yjbang[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*1.1
+        if (as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2])) > 
+            as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))){
+          yjbang[yjbang[,1] == "最大物攻",2] <- 
+            as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))
+        }
+      }
+      if (input$buff9 == "灵猴"){
+        yjbang[yjbang[,1] == "命中",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "命中",2]))*1.05
+        yjbang[yjbang[,1] == "附伤",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "附伤",2]))*1.11 + 270
+        yjbang[yjbang[,1] == "追电",2]<-as.numeric(as.character(yjbang[yjbang[,1] == "追电",2]))*1.05
+      }
+      yjbang0 <- yjbang
+      if (input$buff7 == "有"){
+        tingyu <- 1
+        yjbang0[yjbang0[,1] == "附伤",2]<-as.numeric(as.character(yjbang0[yjbang0[,1] == "附伤",2])) + 414
+      }
+      if (input$buff5 == "有"){
+        yjbang[yjbang[,1] == "人祸",2]<-(as.numeric(as.character(yjbang[yjbang[,1] == "人祸",2])) + 100)*1.3 - 100
+      }
+      if (input$buff1 == "有但未开启落絮随风" | input$buff1 == "有且开启落絮随风"){
+        yjbang0[yjbang0[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*0.32
+        yjbang0[yjbang0[,1] == "最大物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*0.32
+        yjbang0[yjbang0[,1] == "重击",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "重击",2])) + 864
+      }
+      if (input$buff4 == "有"){
+        yjbang0[yjbang0[,1] == "最小法攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小法攻",2])) + 377
+        yjbang0[yjbang0[,1] == "最大法攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大法攻",2])) + 629
+      }
+      if (input$buff2 == "85% ~ 100%血"){
+        yjbang0[yjbang0[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*0.4 + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小法攻",2]))*0.1
+        yjbang0[yjbang0[,1] == "最大物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*0.4 +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大法攻",2]))*0.1
+        yjbang0[yjbang0[,1] == "会心",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "会心",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "会心",2]))*0.1
+        yjbang0[yjbang0[,1] == "重击",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "重击",2])) + 140
+      } else if (input$buff2 == "60% ~ 85%血"){
+        yjbang0[yjbang0[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*0.6 + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小法攻",2]))*0.11
+        yjbang0[yjbang0[,1] == "最大物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*0.6 +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大法攻",2]))*0.11
+        yjbang0[yjbang0[,1] == "会心",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "会心",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "会心",2]))*0.15
+        yjbang0[yjbang0[,1] == "重击",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "重击",2])) + 200
+      } else if (input$buff2 == "35% ~ 60%血"){
+        yjbang0[yjbang0[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*0.8 + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小法攻",2]))*0.13
+        yjbang0[yjbang0[,1] == "最大物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*0.8 +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大法攻",2]))*0.13
+        yjbang0[yjbang0[,1] == "会心",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "会心",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "会心",2]))*0.2
+        yjbang0[yjbang0[,1] == "重击",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "重击",2])) + 260
+      } else if (input$buff2 == "35%血以下"){
+        yjbang0[yjbang0[,1] == "最小物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小物攻",2]))*1 + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最小法攻",2]))*0.13
+        yjbang0[yjbang0[,1] == "最大物攻",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大物攻",2]))*1 +
+          as.numeric(as.character(yjbang[yjbang[,1] == "最大法攻",2]))*0.15
+        yjbang0[yjbang0[,1] == "会心",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "会心",2])) + 
+          as.numeric(as.character(yjbang[yjbang[,1] == "会心",2]))*0.25
+        yjbang0[yjbang0[,1] == "重击",2]<- as.numeric(as.character(yjbang0[yjbang0[,1] == "重击",2])) + 320
+      }
+      if (input$buff6 == "有"){
+        x<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最小物攻",2])) +
+          as.numeric(as.character(yjbang0[yjbang0[,1] == "最小法攻",2]))
+        y<- as.numeric(as.character(yjbang0[yjbang0[,1] == "最大物攻",2])) +
+          as.numeric(as.character(yjbang0[yjbang0[,1] == "最大法攻",2]))
+        yjbang0[yjbang0[,1] == "最小物攻",2] <- x
+        yjbang0[yjbang0[,1] == "最小法攻",2] <- x
+        yjbang0[yjbang0[,1] == "最大物攻",2] <- y
+        yjbang0[yjbang0[,1] == "最大法攻",2] <- y
+      }
+      
+      
+      if (input$buff10 == "有"){
+        bxbang[bxbang[,1] == "回避",2]<-as.numeric(as.character(bxbang[bxbang[,1] == "回避",2]))*0.25
+        zidian <- 1
+      }
+      if (input$buff3 == "有"){
+        weiyang <- 1
+      }
+      
+      if (input$buff9 == "猛虎"){
+        menghu <- 1
+      }
+      if (input$buff9 == "水生"){
+        shuisheng <- 1
+      }
+      if (input$buff9 == "蜃气"){
+        shenqi <- 1
+      }
+      
+      if (input$buff9 == "厉鬼"){
+        bxbang[bxbang[,1] == "回避",2]<-as.numeric(as.character(bxbang[bxbang[,1] == "回避",2]))*0.85
+        ligui <- 1
+      }
+      if (input$buff9 == "强盗"){
+        qiangdao <- 1
+      }
+      if (input$buff9 == "灵猴"){
+        linghou <- 1
+      }
+      if (input$buff11 == "有"){
+        xinyan <- 1
+      }
+      Damage_magic(yjbang0,bxbang,tingyu,weiyang,zidian,wugou,menghu,shuisheng,luoxu,shenqi,ligui,qiangdao,linghou,xinyan)$r2
+    })
   
   output$mytable <- renderDataTable({
     bang()
@@ -788,5 +1408,11 @@ shinyServer(function(input, output) {
   },options = list(aLengthMenu = c(5,10,25,50),iDisplayLength = 50))
   output$mytable4 <- renderDataTable({
     damage_exp()
+  },options = list(aLengthMenu = c(5,10,25,50),iDisplayLength = 50))
+  output$mytable5 <- renderDataTable({
+    damage_magic()
+  },options = list(aLengthMenu = c(5,10,25,50),iDisplayLength = 50))
+  output$mytable6 <- renderDataTable({
+    damage_magic_exp()
   },options = list(aLengthMenu = c(5,10,25,50),iDisplayLength = 50))
 })
