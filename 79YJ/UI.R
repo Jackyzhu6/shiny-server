@@ -11,10 +11,18 @@ shinyUI(fluidPage(
     ),
   
   tags$head(includeScript("google-analytics.js")),
+  div(
+  h1("天下3 - 79弈剑伤害模拟器"),
+  p(a("天下3论坛",href = "http://tx3.netease.com/",stype = "color:red;"),
+    "用户",a("ibm20023",href = "http://tx3.netease.com/space-uid-828023.html"),"原创",
+                                 style = "text-align: right;
+                                          color: black;"),
+                                 style = "color: red;
+                                          font-family: 'Times New Roman', 'Microsoft YaHei', '微软雅黑';
+                                          text-align: center;
   
-  headerPanel("天下3 - 79弈剑伤害爆发数值"),
+  "),
   sidebarPanel(
-      helpText("天下3论坛用户ibm20023原创"),
       textInput("url", "请输入弈剑英雄榜",  
                    "http://bang.tx3.163.com/bang/role/47_4243247"),
       textInput("url2", "请输入对手英雄榜",
