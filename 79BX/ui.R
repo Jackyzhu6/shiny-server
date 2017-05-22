@@ -12,6 +12,7 @@ shinyUI(fluidPage(
                             background-color: #4CBDBD;
                             }
                             "))),
+  tags$head(includeScript("google-analytics.js")),
   div(
     h1("天下3 - 79冰心属性制作App"),
     p(a("天下3论坛",href = "http://tx3.netease.com/",stype = "color:red;"),

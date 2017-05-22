@@ -2774,6 +2774,12 @@ shinyServer(function(input, output, session) {
     data[data[,1] == "坚韧",2] <- floor(data[data[,1] == "坚韧",2] + data[data[,1] == "体",2]*0.5)
     data[data[,1] == "物防",2] <- floor(data[data[,1] == "物防",2] + data[data[,1] == "体",2])
     data[data[,1] == "生命值",2] <- floor(data[data[,1] == "生命值",2] + data[data[,1] == "体",2]*3.8)
+    data[data[,1] == "疾语",2] <- floor(data[data[,1] == "疾语",2]/16.83)
+    data[data[,1] == "明思",2] <- floor(data[data[,1] == "明思",2]/16.83)
+    data[data[,1] == "知彼",2] <- floor(data[data[,1] == "知彼",2]/17.1)
+    data[data[,1] == "明思",2] <- floor(data[data[,1] == "明思",2]/16.83)
+    data[data[,1] == "人祸",2] <- floor(data[data[,1] == "人祸",2]/17.1)
+    data[data[,1] == "追电",2] <- floor(data[data[,1] == "追电",2]/5.10 + 330)
     data
   })
   output$mytable <- renderDataTable({
