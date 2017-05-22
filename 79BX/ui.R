@@ -185,21 +185,8 @@ shinyUI(fluidPage(
                    selectInput("short2_2","第二条:",choices = "无"),
                    selectInput("short2_3","第三条:",choices = "无")
                  ),
-                 h5("炼化",style = "color:red;"),
-                 splitLayout(
-                   selectInput("short3_1","蓝:",choices = c("无","力","敏","魂","念","疾","体")),
-                   selectInput("short3_2","橙:",choices = c("无","附火","附水","附元","附风","附毒",
-                                                           "白刃","阴伤","崩击","水重","火重","风重",
-                                                           "元重","毒重","挥砍化解","钝系化解","穿刺化解",
-                                                           "火系化解","水系化解","风系化解","元系化解","毒系化解"))
-                 ),
-                 splitLayout(
-                   selectInput("short3_3","金:",choices = c("无","追电","神明","明思","疾语")),
-                   selectInput("short3_4","紫:",choices = c("无","最大物攻","最小物攻","物防","最小法攻","最大法攻","法防"))
-                 ),
                  splitLayout(
                    selectInput("short_zuan1","加护数",choices = c(0:20)),
-                   selectInput("short_zuan2","炼护数",choices = c(0:20)),
                    selectInput("short4","鉴定",choices = c("无"))
                  )
     ),
@@ -247,21 +234,8 @@ shinyUI(fluidPage(
                    selectInput("shoes2_2","第二条:",choices = "无"),
                    selectInput("shoes2_3","第三条:",choices = "无")
                  ),
-                 h5("炼化",style = "color:red;"),
-                 splitLayout(
-                   selectInput("shoes3_1","蓝:",choices = c("无","力","敏","魂","念","疾","体")),
-                   selectInput("shoes3_2","橙:",choices = c("无","附火","附水","附元","附风","附毒",
-                                                           "白刃","阴伤","崩击","水重","火重","风重",
-                                                           "元重","毒重","挥砍化解","钝系化解","穿刺化解",
-                                                           "火系化解","水系化解","风系化解","元系化解","毒系化解"))
-                 ),
-                 splitLayout(
-                   selectInput("shoes3_3","金:",choices = c("无","追电","神明","明思","疾语")),
-                   selectInput("shoes3_4","紫:",choices = c("无","最大物攻","最小物攻","物防","最小法攻","最大法攻","法防"))
-                 ),
                  splitLayout(
                    selectInput("shoes_zuan1","加护数",choices = c(0:20)),
-                   selectInput("shoes_zuan2","炼护数",choices = c(0:20)),
                    selectInput("shoes4","鉴定",choices = c("无"))
                  )
     )),

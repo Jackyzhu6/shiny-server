@@ -263,15 +263,15 @@ shinyServer(function(input, output, session) {
         beltz <- input$belt2_3
         if (beltx == "重击"){
           if (belty == "抗性"){
-            updateSelectInput(session, "belt4", choices = c("无","阴伤","毒重","身法","坚韧","定力","生命值","物防","法防"))
+            updateSelectInput(session, "belt4", choices = c("无","阴伤","毒重","身法","坚韧","定力","生命值","物防"))
           } else {
-            updateSelectInput(session, "belt4", choices = c("无","阴伤","毒重","生命值","物防","法防"))
+            updateSelectInput(session, "belt4", choices = c("无","阴伤","毒重","生命值","物防"))
           } 
         } else {
           if (belty == "抗性"){
-            updateSelectInput(session, "belt4", choices = c("无",beltx,"身法","坚韧","定力","生命值","物防","法防"))
+            updateSelectInput(session, "belt4", choices = c("无",beltx,"身法","坚韧","定力","生命值","物防"))
           } else {
-            updateSelectInput(session, "belt4", choices = c("无",beltx,"生命值","物防","法防"))
+            updateSelectInput(session, "belt4", choices = c("无",beltx,"生命值","物防"))
           }
         }
       })
@@ -280,45 +280,45 @@ shinyServer(function(input, output, session) {
       updateSelectInput(session, "belt2_2",choices = "无")
       updateSelectInput(session, "belt2_3",choices = "无")
       if (belt_1 == "妙手之古始带"){
-        updateSelectInput(session, "belt4", choices = c("无","生命值","念","疾","体","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","生命值","念","疾","体","物防"))
       }
       if (belt_1 == "龙卷之古始带"){
-        updateSelectInput(session, "belt4", choices = c("无","生命值","敏","魂","体","附风","风重","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","生命值","敏","魂","体","附风","风重","物防"))
       }
       if (belt_1 == "元破之古始带"){
-        updateSelectInput(session, "belt4", choices = c("无","念","疾","体","附元","生命值","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","念","疾","体","附元","生命值","物防"))
       }
       if (belt_1 == "闇火之古始带"){
-        updateSelectInput(session, "belt4", choices = c("无","生命值","念","魂","体","附火","火重","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","生命值","念","魂","体","附火","火重","物防"))
       }
       if (belt_1 == "轻焰之古始带"){
-        updateSelectInput(session, "belt4", choices = c("无","生命值","敏","魂","疾","附火","会心","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","生命值","敏","魂","疾","附火","会心","物防"))
       }
       if (belt_1 == "罂散之古始带"){
-        updateSelectInput(session, "belt4", choices = c("无","生命值","敏","魂","疾","附毒","毒重","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","生命值","敏","魂","疾","附毒","毒重","物防"))
       }
       if (belt_1 == "浩风之古始带"){
-        updateSelectInput(session, "belt4", choices = c("无","生命值","力","疾","白刃","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","生命值","力","疾","白刃","物防"))
       }
       if (belt_1 == "寒雨之古始带"){
-        updateSelectInput(session, "belt4", choices = c("无","生命值","力","疾","附水","白刃","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","生命值","力","疾","附水","白刃","物防"))
       }
       if (belt_1 == "沉忧之古始带"){
-        updateSelectInput(session, "belt4", choices = c("无","生命值","魂","念","疾","体","附水","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","生命值","魂","念","疾","体","附水","物防"))
       }
       if (belt_1 == "混元之古始带"){
-        updateSelectInput(session, "belt4", choices = c("无","生命值","敏","魂","疾","附元","会心","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","生命值","敏","魂","疾","附元","会心","物防"))
       }
       if (belt_1 == "紫陌带·玄"){
-        updateSelectInput(session, "belt4", choices = c("无","命中","生命值","毒重","阴伤","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","命中","生命值","毒重","阴伤","物防"))
         updateSelectInput(session, "belt_zuan1", choices = c(0:19))
       }
       if (belt_1 == "紫陌带·素"){
-        updateSelectInput(session, "belt4", choices = c("无","会心","回避","身法","坚韧","定力","生命值","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","会心","回避","身法","坚韧","定力","生命值","物防"))
         updateSelectInput(session, "belt_zuan1", choices = c(0:19))
       }
       if (belt_1 == "蓝沁带"){
-        updateSelectInput(session, "belt4", choices = c("无","生命值","魂","念","疾","体","物防","法防"))
+        updateSelectInput(session, "belt4", choices = c("无","生命值","魂","念","疾","体","物防"))
         updateSelectInput(session, "belt_zuan1", choices = c(0:19))
       }
       if (belt_1 == "秋水落霞带"){
@@ -334,6 +334,338 @@ shinyServer(function(input, output, session) {
         updateSelectInput(session, "belt_zuan1", choices = c(0:15))
       }
     }
+    #################长裤#################
+    pant_1 <- input$pant1
+    if (pant_1 == "燕影之无极长裤"){
+      updateSelectInput(session, "pant2_1",choices = c("回避","会心","命中","重击"))
+      updateSelectInput(session, "pant2_2",choices = c("抗性","技能状态命中力"))
+      updateSelectInput(session, "pant2_3",choices = c("神明","疾语","人祸"))
+      observe({
+        pantx <- input$pant2_1
+        panty <- input$pant2_2
+        pantz <- input$pant2_3
+        if (pantx == "重击"){
+          if (panty == "抗性"){
+            updateSelectInput(session, "pant4", choices = c("无","回避","阴伤","毒重","身法","坚韧","定力","生命值","物防"))
+          } else {
+            updateSelectInput(session, "pant4", choices = c("无","回避","阴伤","毒重","生命值","物防"))
+          } 
+        } else {
+          if (panty == "抗性"){
+            updateSelectInput(session, "pant4", choices = unique(c("无",pantx,"回避","身法","坚韧","定力","生命值","物防")))
+          } else {
+            updateSelectInput(session, "pant4", choices = unique(c("无",pantx,"回避","生命值","物防")))
+          }
+        }
+      })
+    } else {
+      updateSelectInput(session, "pant2_1",choices = "无")
+      updateSelectInput(session, "pant2_2",choices = "无")
+      updateSelectInput(session, "pant2_3",choices = "无")
+      if (pant_1 == "妙手之古始长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","念","疾","体","物防"))
+      }
+      if (pant_1 == "龙卷之古始长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","敏","魂","体","附风","风重","物防"))
+      }
+      if (pant_1 == "元破之古始长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","念","疾","体","附元","生命值","物防"))
+      }
+      if (pant_1 == "闇火之古始长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","念","魂","体","附火","火重","物防"))
+      }
+      if (pant_1 == "轻焰之古始长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","敏","魂","疾","附火","会心","物防"))
+      }
+      if (pant_1 == "罂散之古始长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","敏","魂","疾","附毒","毒重","物防"))
+      }
+      if (pant_1 == "浩风之古始长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","力","疾","白刃","物防"))
+      }
+      if (pant_1 == "寒雨之古始长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","力","疾","附水","白刃","物防"))
+      }
+      if (pant_1 == "沉忧之古始长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","魂","念","疾","体","附水","物防"))
+      }
+      if (pant_1 == "混元之古始长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","敏","魂","疾","附元","会心","物防"))
+      }
+      if (pant_1 == "紫陌长裤·玄"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","命中","生命值","毒重","阴伤","物防"))
+        updateSelectInput(session, "pant_zuan1", choices = c(0:19))
+      }
+      if (pant_1 == "紫陌长裤·素"){
+        updateSelectInput(session, "pant4", choices = c("无","会心","回避","身法","坚韧","定力","生命值","物防"))
+        updateSelectInput(session, "pant_zuan1", choices = c(0:19))
+      }
+      if (pant_1 == "蓝沁长裤"){
+        updateSelectInput(session, "pant4", choices = c("无","回避","敏","念","疾","体","物防"))
+        updateSelectInput(session, "pant_zuan1", choices = c(0:19))
+      }
+      if (pant_1 == "秋水落霞长裤"){
+        updateSelectInput(session, "pant4", choices = c("无"))
+        updateSelectInput(session, "pant_zuan1", choices = c(0:15))
+      }
+      if (pant_1 == "长天孤鹜长裤"){
+        updateSelectInput(session, "pant4", choices = c("无"))
+        updateSelectInput(session, "pant_zuan1", choices = c(0:15))
+      }
+      if (pant_1 == "上净云水长裤"){
+        updateSelectInput(session, "pant4", choices = c("无"))
+        updateSelectInput(session, "pant_zuan1", choices = c(0:15))
+      }
+    }
+    #################摆#################
+    short_1 <- input$short1
+    if (short_1 == "燕影之无极摆"){
+      updateSelectInput(session, "short2_1",choices = c("回避","会心","命中","重击"))
+      updateSelectInput(session, "short2_2",choices = c("抗性","技能状态命中力"))
+      updateSelectInput(session, "short2_3",choices = c("神明","疾语","人祸"))
+      observe({
+        shortx <- input$short2_1
+        shorty <- input$short2_2
+        shortz <- input$short2_3
+        if (shortx == "重击"){
+          if (shorty == "抗性"){
+            updateSelectInput(session, "short4", choices = c("无","回避","阴伤","毒重","身法","坚韧","定力","生命值","法防"))
+          } else {
+            updateSelectInput(session, "short4", choices = c("无","回避","阴伤","毒重","生命值","法防"))
+          } 
+        } else {
+          if (shorty == "抗性"){
+            updateSelectInput(session, "short4", choices = unique(c("无",shortx,"回避","身法","坚韧","定力","生命值","法防")))
+          } else {
+            updateSelectInput(session, "short4", choices = unique(c("无",shortx,"回避","生命值","法防")))
+          }
+        }
+      })
+    } else {
+      updateSelectInput(session, "short2_1",choices = "无")
+      updateSelectInput(session, "short2_2",choices = "无")
+      updateSelectInput(session, "short2_3",choices = "无")
+      if (short_1 == "妙手之古始摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","念","疾","体","法防"))
+      }
+      if (short_1 == "龙卷之古始摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","敏","魂","体","附风","风重","法防"))
+      }
+      if (short_1 == "元破之古始摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","念","疾","体","附元","生命值","法防"))
+      }
+      if (short_1 == "闇火之古始摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","念","魂","体","附火","火重","法防"))
+      }
+      if (short_1 == "轻焰之古始摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","敏","魂","疾","附火","会心","法防"))
+      }
+      if (short_1 == "罂散之古始摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","敏","魂","疾","附毒","毒重","法防"))
+      }
+      if (short_1 == "浩风之古始摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","力","疾","白刃","物防","法防"))
+      }
+      if (short_1 == "寒雨之古始摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","力","疾","附水","白刃","法防"))
+      }
+      if (short_1 == "沉忧之古始摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","魂","念","疾","体","附水","法防"))
+      }
+      if (short_1 == "混元之古始摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","敏","魂","疾","附元","会心","法防"))
+      }
+      if (short_1 == "紫陌摆·玄"){
+        updateSelectInput(session, "short4", choices = c("无","回避","命中","生命值","毒重","阴伤","法防"))
+        updateSelectInput(session, "short_zuan1", choices = c(0:19))
+      }
+      if (short_1 == "紫陌摆·素"){
+        updateSelectInput(session, "short4", choices = c("无","会心","回避","身法","坚韧","定力","生命值","法防"))
+        updateSelectInput(session, "short_zuan1", choices = c(0:19))
+      }
+      if (short_1 == "蓝沁摆"){
+        updateSelectInput(session, "short4", choices = c("无","回避","敏","念","疾","体","法防"))
+        updateSelectInput(session, "short_zuan1", choices = c(0:19))
+      }
+      if (short_1 == "秋水落霞摆"){
+        updateSelectInput(session, "short4", choices = c("无"))
+        updateSelectInput(session, "short_zuan1", choices = c(0:15))
+      }
+      if (short_1 == "长天孤鹜摆"){
+        updateSelectInput(session, "short4", choices = c("无"))
+        updateSelectInput(session, "short_zuan1", choices = c(0:15))
+      }
+      if (short_1 == "上净云水摆"){
+        updateSelectInput(session, "short4", choices = c("无"))
+        updateSelectInput(session, "short_zuan1", choices = c(0:15))
+      }
+    }
+    #################腕#################
+    arm_1 <- input$arm1
+    if (arm_1 == "燕影之无极腕"){
+      updateSelectInput(session, "arm2_1",choices = c("回避","会心","命中","重击"))
+      updateSelectInput(session, "arm2_2",choices = c("抗性","技能状态命中力"))
+      updateSelectInput(session, "arm2_3",choices = c("神明","疾语","人祸"))
+      observe({
+        armx <- input$arm2_1
+        army <- input$arm2_2
+        armz <- input$arm2_3
+        if (armx == "重击"){
+          if (army == "抗性"){
+            updateSelectInput(session, "arm4", choices = c("无","命中","阴伤","毒重","身法","坚韧","定力","生命值","会心"))
+          } else {
+            updateSelectInput(session, "arm4", choices = c("无","命中","阴伤","毒重","生命值","会心"))
+          } 
+        } else {
+          if (army == "抗性"){
+            updateSelectInput(session, "arm4", choices = unique(c("无",armx,"命中","身法","坚韧","定力","生命值","会心")))
+          } else {
+            updateSelectInput(session, "arm4", choices = unique(c("无",armx,"命中","生命值","会心")))
+          }
+        }
+      })
+    } else {
+      updateSelectInput(session, "arm2_1",choices = "无")
+      updateSelectInput(session, "arm2_2",choices = "无")
+      updateSelectInput(session, "arm2_3",choices = "无")
+      if (arm_1 == "妙手之古始腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","念","疾","体","会心"))
+      }
+      if (arm_1 == "龙卷之古始腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","敏","魂","体","附风","风重","会心"))
+      }
+      if (arm_1 == "元破之古始腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","念","疾","体","附元","生命值","会心"))
+      }
+      if (arm_1 == "闇火之古始腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","念","魂","体","附火","火重","会心"))
+      }
+      if (arm_1 == "轻焰之古始腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","敏","魂","疾","附火","会心"))
+      }
+      if (arm_1 == "罂散之古始腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","敏","魂","疾","附毒","毒重","会心"))
+      }
+      if (arm_1 == "浩风之古始腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","力","疾","白刃","会心","物防"))
+      }
+      if (arm_1 == "寒雨之古始腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","力","疾","附水","白刃","会心"))
+      }
+      if (arm_1 == "沉忧之古始腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","魂","念","疾","体","附水","会心"))
+      }
+      if (arm_1 == "混元之古始腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","敏","魂","疾","附元","会心"))
+      }
+      if (arm_1 == "紫陌腕·玄"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","命中","生命值","毒重","阴伤"))
+        updateSelectInput(session, "arm_zuan1", choices = c(0:19))
+      }
+      if (arm_1 == "紫陌腕·素"){
+        updateSelectInput(session, "arm4", choices = c("无","会心","命中","身法","坚韧","定力","生命值"))
+        updateSelectInput(session, "arm_zuan1", choices = c(0:19))
+      }
+      if (arm_1 == "蓝沁腕"){
+        updateSelectInput(session, "arm4", choices = c("无","命中","魂","念","力","体","会心"))
+        updateSelectInput(session, "arm_zuan1", choices = c(0:19))
+      }
+      if (arm_1 == "秋水落霞腕"){
+        updateSelectInput(session, "arm4", choices = c("无"))
+        updateSelectInput(session, "arm_zuan1", choices = c(0:15))
+      }
+      if (arm_1 == "长天孤鹜腕"){
+        updateSelectInput(session, "arm4", choices = c("无"))
+        updateSelectInput(session, "arm_zuan1", choices = c(0:15))
+      }
+      if (arm_1 == "上净云水腕"){
+        updateSelectInput(session, "arm4", choices = c("无"))
+        updateSelectInput(session, "arm_zuan1", choices = c(0:15))
+      }
+    } 
+    #################履#################
+    shoes_1 <- input$shoes1
+    if (shoes_1 == "燕影之无极履"){
+      updateSelectInput(session, "shoes2_1",choices = c("回避","会心","命中","重击"))
+      updateSelectInput(session, "shoes2_2",choices = c("抗性","技能状态命中力"))
+      updateSelectInput(session, "shoes2_3",choices = c("神明","疾语","人祸"))
+      observe({
+        shoesx <- input$shoes2_1
+        shoesy <- input$shoes2_2
+        shoesz <- input$shoes2_3
+        if (shoesx == "重击"){
+          if (shoesy == "抗性"){
+            updateSelectInput(session, "shoes4", choices = c("无","回避","阴伤","毒重","身法","坚韧","定力","生命值","法防"))
+          } else {
+            updateSelectInput(session, "shoes4", choices = c("无","回避","阴伤","毒重","生命值","法防"))
+          } 
+        } else {
+          if (shoesy == "抗性"){
+            updateSelectInput(session, "shoes4", choices = unique(c("无",shoesx,"回避","身法","坚韧","定力","生命值","法防")))
+          } else {
+            updateSelectInput(session, "shoes4", choices = unique(c("无",shoesx,"回避","生命值","法防")))
+          }
+        }
+      })
+    } else {
+      updateSelectInput(session, "shoes2_1",choices = "无")
+      updateSelectInput(session, "shoes2_2",choices = "无")
+      updateSelectInput(session, "shoes2_3",choices = "无")
+      if (shoes_1 == "妙手之古始履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","念","疾","体","法防"))
+      }
+      if (shoes_1 == "龙卷之古始履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","敏","魂","体","附风","风重","法防"))
+      }
+      if (shoes_1 == "元破之古始履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","念","疾","体","附元","生命值","法防"))
+      }
+      if (shoes_1 == "闇火之古始履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","念","魂","体","附火","火重","法防"))
+      }
+      if (shoes_1 == "轻焰之古始履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","敏","魂","疾","附火","会心","法防"))
+      }
+      if (shoes_1 == "罂散之古始履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","敏","魂","疾","附毒","毒重","法防"))
+      }
+      if (shoes_1 == "浩风之古始履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","力","疾","白刃","物防","法防"))
+      }
+      if (shoes_1 == "寒雨之古始履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","力","疾","附水","白刃","法防"))
+      }
+      if (shoes_1 == "沉忧之古始履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","魂","念","疾","体","附水","法防"))
+      }
+      if (shoes_1 == "混元之古始履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","敏","魂","疾","附元","会心","法防"))
+      }
+      if (shoes_1 == "紫陌履·玄"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","命中","生命值","毒重","阴伤","法防"))
+        updateSelectInput(session, "shoes_zuan1", choices = c(0:19))
+      }
+      if (shoes_1 == "紫陌履·素"){
+        updateSelectInput(session, "shoes4", choices = c("无","会心","回避","身法","坚韧","定力","生命值","法防"))
+        updateSelectInput(session, "shoes_zuan1", choices = c(0:19))
+      }
+      if (shoes_1 == "蓝沁履"){
+        updateSelectInput(session, "shoes4", choices = c("无","回避","敏","念","疾","体","法防"))
+        updateSelectInput(session, "shoes_zuan1", choices = c(0:19))
+      }
+      if (shoes_1 == "秋水落霞履"){
+        updateSelectInput(session, "shoes4", choices = c("无"))
+        updateSelectInput(session, "shoes_zuan1", choices = c(0:15))
+      }
+      if (shoes_1 == "长天孤鹜履"){
+        updateSelectInput(session, "shoes4", choices = c("无"))
+        updateSelectInput(session, "shoes_zuan1", choices = c(0:15))
+      }
+      if (shoes_1 == "上净云水履"){
+        updateSelectInput(session, "shoes4", choices = c("无"))
+        updateSelectInput(session, "shoes_zuan1", choices = c(0:15))
+      }
+    } 
     
 })
   bang <- reactive({
@@ -450,7 +782,6 @@ shinyServer(function(input, output, session) {
       data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 322 + 6*as.numeric(input$head_zuan1)
       data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$head_zuan1)
       data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
-      data[data[,1] == "骤雨",2] <- data[data[,1] == "骤雨",2] + 47
     }
     if (input$head1 == "寒雨之古始冠"){
       data[data[,1] == "力",2] <- data[data[,1] == "力",2] + 27 + as.numeric(input$head_zuan1)
@@ -1133,13 +1464,14 @@ shinyServer(function(input, output, session) {
         data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 379 + 7*as.numeric(input$clothes_zuan1)
         data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 229 + 4*as.numeric(input$clothes_zuan1)
         data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 346 + 6*as.numeric(input$clothes_zuan1)
+        data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 224 + 4*as.numeric(input$clothes_zuan1)
         data[data[,1] == "知彼",2] <- data[data[,1] == "知彼",2] + 32
         if (input$clothes2_1 == "重击"){
           data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 32 + as.numeric(input$clothes_zuan1)
           data[data[,1] == "阴伤",2] <- data[data[,1] == "阴伤",2] + 32 + as.numeric(input$clothes_zuan1)
         }
         if (input$clothes2_1 == "回避"){
-          data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 331 + 6*as.numeric(input$clothes_zuan1)
+          data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 107 + 2*as.numeric(input$clothes_zuan1)
         }
         if (input$clothes2_1 == "命中"){
           data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 85 + 2*as.numeric(input$clothes_zuan1)
@@ -1449,6 +1781,972 @@ shinyServer(function(input, output, session) {
     } else {
       data[data[,1] == input$belt4,2] <- data[data[,1] == input$belt4,2] + 9
     }
+    ########长裤###################
+    if (input$pant1 == "妙手之古始长裤"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 133 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 47
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 40
+    }
+    if (input$pant1 == "龙卷之古始长裤"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 133 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附风",2] <- data[data[,1] == "附风",2] + 14 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "风重",2] <- data[data[,1] == "风重",2] + 14 + as.numeric(input$pant_zuan1)
+    }
+    if (input$pant1 == "元破之古始长裤"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 133 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 405 + 7*as.numeric(input$pant_zuan1)
+      data[data[,1] == "附元",2] <- data[data[,1] == "附元",2] + 14 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+    }
+    if (input$pant1 == "闇火之古始长裤"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 133 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附火",2] <- data[data[,1] == "附火",2] + 14 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "火重",2] <- data[data[,1] == "火重",2] + 14 + as.numeric(input$pant_zuan1)
+    }
+    if (input$pant1 == "轻焰之古始长裤"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 133 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附火",2] <- data[data[,1] == "附火",2] + 14 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 14 + as.numeric(input$pant_zuan1)
+    }
+    if (input$pant1 == "罂散之古始长裤"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 133 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+      data[data[,1] == "附毒",2] <- data[data[,1] == "附毒",2] + 14 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 14 + as.numeric(input$pant_zuan1)
+    }
+    if (input$pant1 == "浩风之古始长裤"){
+      data[data[,1] == "力",2] <- data[data[,1] == "力",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "白刃",2] <- data[data[,1] == "白刃",2] + 14 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 241 + 5*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+    }
+    if (input$pant1 == "寒雨之古始长裤"){
+      data[data[,1] == "力",2] <- data[data[,1] == "力",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "白刃",2] <- data[data[,1] == "白刃",2] + 14 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 133 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+      data[data[,1] == "附水",2] <- data[data[,1] == "附水",2] + 14 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 40
+    }
+    if (input$pant1 == "沉忧之古始长裤"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 133 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 32
+      data[data[,1] == "附水",2] <- data[data[,1] == "附水",2] + 14 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$pant_zuan1)
+    }
+    if (input$pant1 == "混元之古始长裤"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 133 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附元",2] <- data[data[,1] == "附元",2] + 14 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 14 + as.numeric(input$pant_zuan1)
+    }
+    if (input$pant1 == "紫陌长裤·玄"){
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 18 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 240 + 4*as.numeric(input$pant_zuan1)
+      data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 20 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "阴伤",2] <- data[data[,1] == "阴伤",2] + 20 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 119 + 2*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 117 + 2*as.numeric(input$pant_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 26
+      data[data[,1] == "知彼",2] <- data[data[,1] == "知彼",2] + 29
+    }
+    if (input$pant1 == "紫陌长裤·素"){
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 52 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 240 + 4*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 143 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "身法",2] <- data[data[,1] == "身法",2] + 18 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 119 + 2*as.numeric(input$pant_zuan1)
+      data[data[,1] == "坚韧",2] <- data[data[,1] == "坚韧",2] + 18 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "定力",2] <- data[data[,1] == "定力",2] + 26 + as.numeric(input$pant_zuan1)
+    }
+    if (input$pant1 == "蓝沁长裤"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 26 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 16 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 31 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 29
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 119 + 2*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 117 + 2*as.numeric(input$pant_zuan1)
+    }
+    if (input$pant1 == "秋水落霞长裤"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 18 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 11 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 13 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 181 + 4*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 126 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 16
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 79 + 2*as.numeric(input$pant_zuan1)
+      data[data[,1] == "御心",2] <- data[data[,1] == "御心",2] + 16
+    }
+    if (input$pant1 == "长天孤鹜长裤"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 13 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 18 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 18 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 129 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 126 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 16
+      data[data[,1] == "最大法攻",2] <- data[data[,1] == "最大法攻",2] + 11 + as.numeric(input$pant_zuan1)
+    }
+    if (input$pant1 == "上净云水长裤"){
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 12 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 92 + 2*as.numeric(input$pant_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 12 + as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 176 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 115 + 2*as.numeric(input$pant_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 20
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 15
+      data[data[,1] == "最小法攻",2] <- data[data[,1] == "最小法攻",2] + 11 + as.numeric(input$pant_zuan1)
+    }
+    if (input$pant1 == "燕影之无极长裤"){
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 241 + 5*as.numeric(input$pant_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 127 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 125 + 3*as.numeric(input$pant_zuan1)
+      data[data[,1] == "知彼",2] <- data[data[,1] == "知彼",2] + 32
+      if (input$pant2_1 == "重击"){
+        data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 20 + as.numeric(input$pant_zuan1)
+        data[data[,1] == "阴伤",2] <- data[data[,1] == "阴伤",2] + 20 + as.numeric(input$pant_zuan1)
+      }
+      if (input$pant2_1 == "回避"){
+        data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 68 + as.numeric(input$pant_zuan1)
+      }
+      if (input$pant2_1 == "命中"){
+        data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$pant_zuan1)
+      }
+      if (input$pant2_1 == "会心"){
+        data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 40 + as.numeric(input$pant_zuan1)
+      }
+      if (input$pant2_2 == "抗性"){
+        data[data[,1] == "身法",2] <- data[data[,1] == "身法",2] + 29 + as.numeric(input$pant_zuan1)
+        data[data[,1] == "坚韧",2] <- data[data[,1] == "坚韧",2] + 29 + as.numeric(input$pant_zuan1)
+        data[data[,1] == "定力",2] <- data[data[,1] == "定力",2] + 38 + as.numeric(input$pant_zuan1)
+      } else {data <- data}
+      if (input$pant2_3 == "人祸"){
+        data[data[,1] == "人祸",2] <- data[data[,1] == "人祸",2] + 16
+      }
+      if (input$pant2_3 == "疾语"){
+        data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 16
+      }
+      if (input$pant2_3 == "神明"){
+        data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 19
+      }
+    }
+    if (input$pant3_1 == "无"){
+      data <- data
+    } else {
+      if (input$pant1 %in% c("妙手之古始长裤","元破之古始长裤","浩风之古始长裤","轻焰之古始长裤",
+                             "寒雨之古始长裤","闇火之古始长裤","龙卷之古始长裤","沉忧之古始长裤",
+                             "混元之古始长裤","罂散之古始长裤")){
+        data[data[,1] == input$pant3_1,2] <- data[data[,1] == input$pant3_1,2] + 35 + as.numeric(input$pant_zuan2)
+      } else if (input$pant1 %in% c("秋水落霞长裤","长天孤鹜长裤","燕影之无极长裤")){
+        data[data[,1] == input$pant3_1,2] <- data[data[,1] == input$pant3_1,2] + 34 + as.numeric(input$pant_zuan2)
+      } else if (input$pant1 %in% c("蓝沁长裤","紫陌长裤·玄","紫陌长裤·素")){
+        data[data[,1] == input$pant3_1,2] <- data[data[,1] == input$pant3_1,2] + 32 + as.numeric(input$pant_zuan2)
+      } else if (input$pant1 == "上净云水长裤"){
+        data[data[,1] == input$pant3_1,2] <- data[data[,1] == input$pant3_1,2] + 31 + as.numeric(input$pant_zuan2)
+      }
+    }
+    if (input$pant3_2 == "无"){
+      data <- data
+    } else {
+      if (input$pant1 %in% c("妙手之古始长裤","元破之古始长裤","浩风之古始长裤","轻焰之古始长裤",
+                             "寒雨之古始长裤","闇火之古始长裤","龙卷之古始长裤","沉忧之古始长裤",
+                             "混元之古始长裤","罂散之古始长裤")){
+        if (input$pant3_2 %in% c("附火","附水","附元","附风","附毒","白刃","阴伤","崩击","水重","火重","风重",
+                                 "元重","毒重")){
+          data[data[,1] == input$pant3_2,2] <- data[data[,1] == input$pant3_2,2] + 17 + as.numeric(input$pant_zuan2)
+        } else {
+          data[data[,1] == input$pant3_2,2] <- data[data[,1] == input$pant3_2,2] + 35 + 2*as.numeric(input$pant_zuan2)
+        }
+      } else if (input$pant1 %in% c("秋水落霞长裤","长天孤鹜长裤","燕影之无极长裤")){
+        if (input$pant3_2 %in% c("附火","附水","附元","附风","附毒","白刃","阴伤","崩击","水重","火重","风重",
+                                 "元重","毒重")){
+          data[data[,1] == input$pant3_2,2] <- data[data[,1] == input$pant3_2,2] + 17 + as.numeric(input$pant_zuan2)
+        } else {
+          data[data[,1] == input$pant3_2,2] <- data[data[,1] == input$pant3_2,2] + 34 + 2*as.numeric(input$pant_zuan2)
+        }
+      } else if (input$pant1 %in% c("蓝沁长裤","紫陌长裤·玄","紫陌长裤·素")){
+        if (input$pant3_2 %in% c("附火","附水","附元","附风","附毒","白刃","阴伤","崩击","水重","火重","风重",
+                                 "元重","毒重")){
+          data[data[,1] == input$pant3_2,2] <- data[data[,1] == input$pant3_2,2] + 16 + as.numeric(input$pant_zuan2)
+        } else {
+          data[data[,1] == input$pant3_2,2] <- data[data[,1] == input$pant3_2,2] + 32 + 2*as.numeric(input$pant_zuan2)
+        }
+      } else if (input$pant1 == "上净云水长裤"){
+        if (input$pant3_2 %in% c("附火","附水","附元","附风","附毒","白刃","阴伤","崩击","水重","火重","风重",
+                                 "元重","毒重")){
+          data[data[,1] == input$pant3_2,2] <- data[data[,1] == input$pant3_2,2] + 15 + as.numeric(input$pant_zuan2)
+        } else {
+          data[data[,1] == input$pant3_2,2] <- data[data[,1] == input$pant3_2,2] + 31 + 2*as.numeric(input$pant_zuan2)
+        }
+      }
+    }
+    if (input$pant3_3 == "无"){
+      data <- data
+    } else {
+      if (input$pant1 %in% c("妙手之古始长裤","元破之古始长裤","浩风之古始长裤","轻焰之古始长裤",
+                             "寒雨之古始长裤","闇火之古始长裤","龙卷之古始长裤","沉忧之古始长裤",
+                             "混元之古始长裤","罂散之古始长裤","秋水落霞长裤","长天孤鹜长裤","燕影之无极长裤")){
+        data[data[,1] == input$pant3_3,2] <- data[data[,1] == input$pant3_3,2] + 47 
+      } else if (input$pant1 %in% c("蓝沁长裤","紫陌长裤·玄","紫陌长裤·素","上净云水长裤")){
+        data[data[,1] == input$pant3_3,2] <- data[data[,1] == input$pant3_3,2] + 43
+      } 
+    }
+    if (input$pant3_4 == "无"){
+      data <- data
+    } else {
+      if (input$pant1 %in% c("妙手之古始长裤","元破之古始长裤","浩风之古始长裤","轻焰之古始长裤",
+                             "寒雨之古始长裤","闇火之古始长裤","龙卷之古始长裤","沉忧之古始长裤",
+                             "混元之古始长裤","罂散之古始长裤")){
+        if (input$pant3_4 %in% c("最大物攻","最大法攻")){
+          data[data[,1] == input$pant3_4,2] <- data[data[,1] == input$pant3_4,2] + 17 + as.numeric(input$pant_zuan2)
+        } else {
+          data[data[,1] == input$pant3_4,2] <- data[data[,1] == input$pant3_4,2] + 35 + 2*as.numeric(input$pant_zuan2)
+        }
+      } else if (input$pant1 %in% c("秋水落霞长裤","长天孤鹜长裤","燕影之无极长裤")){
+        if (input$pant3_4 %in% c("最大物攻","最大法攻")){
+          data[data[,1] == input$pant3_4,2] <- data[data[,1] == input$pant3_4,2] + 17 + as.numeric(input$pant_zuan2)
+        } else {
+          data[data[,1] == input$pant3_4,2] <- data[data[,1] == input$pant3_4,2] + 34 + 2*as.numeric(input$pant_zuan2)
+        }
+      } else if (input$pant1 %in% c("蓝沁长裤","紫陌长裤·玄","紫陌长裤·素")){
+        if (input$pant3_4 %in% c("最大物攻","最大法攻")){
+          data[data[,1] == input$pant3_4,2] <- data[data[,1] == input$pant3_4,2] + 16 + as.numeric(input$pant_zuan2)
+        } else {
+          data[data[,1] == input$pant3_4,2] <- data[data[,1] == input$pant3_4,2] + 32 + 2*as.numeric(input$pant_zuan2)
+        }
+      } else if (input$pant1 == "上净云水长裤"){
+        if (input$pant3_4 %in% c("最大物攻","最大法攻")){
+          data[data[,1] == input$pant3_4,2] <- data[data[,1] == input$pant3_4,2] + 15 + as.numeric(input$pant_zuan2)
+        } else {
+          data[data[,1] == input$pant3_4,2] <- data[data[,1] == input$pant3_4,2] + 31 + 2*as.numeric(input$pant_zuan2)
+        }
+      }
+    }
+    if (input$pant4 == "无"){
+      data <- data
+    } else {
+      data[data[,1] == input$pant4,2] <- data[data[,1] == input$pant4,2] + 9
+    }
+    ########摆###################
+    if (input$short1 == "妙手之古始摆"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 156 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 47
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 45
+    }
+    if (input$short1 == "龙卷之古始摆"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 156 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附风",2] <- data[data[,1] == "附风",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "风重",2] <- data[data[,1] == "风重",2] + 15 + as.numeric(input$short_zuan1)
+    }
+    if (input$short1 == "元破之古始摆"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 156 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 450 + 8*as.numeric(input$short_zuan1)
+      data[data[,1] == "附元",2] <- data[data[,1] == "附元",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+    }
+    if (input$short1 == "闇火之古始摆"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 156 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附火",2] <- data[data[,1] == "附火",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "火重",2] <- data[data[,1] == "火重",2] + 15 + as.numeric(input$short_zuan1)
+    }
+    if (input$short1 == "轻焰之古始摆"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 156 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附火",2] <- data[data[,1] == "附火",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 15 + as.numeric(input$short_zuan1)
+    }
+    if (input$short1 == "罂散之古始摆"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 156 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+      data[data[,1] == "附毒",2] <- data[data[,1] == "附毒",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 15 + as.numeric(input$short_zuan1)
+    }
+    if (input$short1 == "浩风之古始摆"){
+      data[data[,1] == "力",2] <- data[data[,1] == "力",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "白刃",2] <- data[data[,1] == "白刃",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 120 + 2*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 156 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+    }
+    if (input$short1 == "寒雨之古始摆"){
+      data[data[,1] == "力",2] <- data[data[,1] == "力",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "白刃",2] <- data[data[,1] == "白刃",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 156 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+      data[data[,1] == "附水",2] <- data[data[,1] == "附水",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 45
+    }
+    if (input$short1 == "沉忧之古始摆"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 156 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 38
+      data[data[,1] == "附水",2] <- data[data[,1] == "附水",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 30 + as.numeric(input$short_zuan1)
+    }
+    if (input$short1 == "混元之古始摆"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 30 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 242 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 156 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附元",2] <- data[data[,1] == "附元",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 15 + as.numeric(input$short_zuan1)
+    }
+    if (input$short1 == "紫陌摆·玄"){
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 20 + as.numeric(input$short_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 285 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 21 + as.numeric(input$short_zuan1)
+      data[data[,1] == "阴伤",2] <- data[data[,1] == "阴伤",2] + 21 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 216 + 4*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 140 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 28
+      data[data[,1] == "知彼",2] <- data[data[,1] == "知彼",2] + 29
+    }
+    if (input$short1 == "紫陌摆·素"){
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 57 + as.numeric(input$short_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 285 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 168 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "身法",2] <- data[data[,1] == "身法",2] + 20 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 216 + 4*as.numeric(input$short_zuan1)
+      data[data[,1] == "坚韧",2] <- data[data[,1] == "坚韧",2] + 20 + as.numeric(input$short_zuan1)
+      data[data[,1] == "定力",2] <- data[data[,1] == "定力",2] + 28 + as.numeric(input$short_zuan1)
+    }
+    if (input$short1 == "蓝沁摆"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 9 + as.numeric(input$short_zuan1)
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 28 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 9 + as.numeric(input$short_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 33 + as.numeric(input$short_zuan1)
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 29
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 216 + 4*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 140 + 3*as.numeric(input$short_zuan1)
+    }
+    if (input$short1 == "秋水落霞摆"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 20 + as.numeric(input$short_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 13 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 234 + 4*as.numeric(input$short_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 75 + 2*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 152 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 16
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 52 + as.numeric(input$short_zuan1)
+      data[data[,1] == "御心",2] <- data[data[,1] == "御心",2] + 16
+    }
+    if (input$short1 == "长天孤鹜摆"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 15 + as.numeric(input$short_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 20 + as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 20 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 234 + 4*as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "回避",2] + 152 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 16
+      data[data[,1] == "最大法攻",2] <- data[data[,1] == "最大法攻",2] + 12 + as.numeric(input$short_zuan1)
+    }
+    if (input$short1 == "上净云水摆"){
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 13 + as.numeric(input$short_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 101 + 2*as.numeric(input$short_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 13 + as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 212 + 4*as.numeric(input$short_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 71 + 2*as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "回避",2] + 138 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 22
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 15
+      data[data[,1] == "最小法攻",2] <- data[data[,1] == "最小法攻",2] + 12 + as.numeric(input$short_zuan1)
+    }
+    if (input$short1 == "燕影之无极摆"){
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 264 + 5*as.numeric(input$short_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 231 + 4*as.numeric(input$short_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 149 + 3*as.numeric(input$short_zuan1)
+      data[data[,1] == "知彼",2] <- data[data[,1] == "知彼",2] + 32
+      if (input$short2_1 == "重击"){
+        data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 21 + as.numeric(input$short_zuan1)
+        data[data[,1] == "阴伤",2] <- data[data[,1] == "阴伤",2] + 21 + as.numeric(input$short_zuan1)
+      }
+      if (input$short2_1 == "回避"){
+        data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 74 + as.numeric(input$short_zuan1)
+      }
+      if (input$short2_1 == "命中"){
+        data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 59 + as.numeric(input$short_zuan1)
+      }
+      if (input$short2_1 == "会心"){
+        data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 44 + as.numeric(input$short_zuan1)
+      }
+      if (input$short2_2 == "抗性"){
+        data[data[,1] == "身法",2] <- data[data[,1] == "身法",2] + 32 + as.numeric(input$short_zuan1)
+        data[data[,1] == "坚韧",2] <- data[data[,1] == "坚韧",2] + 32 + as.numeric(input$short_zuan1)
+        data[data[,1] == "定力",2] <- data[data[,1] == "定力",2] + 41 + as.numeric(input$short_zuan1)
+      } else {data <- data}
+      if (input$short2_3 == "人祸"){
+        data[data[,1] == "人祸",2] <- data[data[,1] == "人祸",2] + 16
+      }
+      if (input$short2_3 == "疾语"){
+        data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 16
+      }
+      if (input$short2_3 == "神明"){
+        data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 21
+      }
+    }
+    if (input$short4 == "无"){
+      data <- data
+    } else {
+      data[data[,1] == input$short4,2] <- data[data[,1] == input$short4,2] + 9
+    }
+    ########腕###################
+    if (input$arm1 == "妙手之古始腕"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 41 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 47
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 30
+    }
+    if (input$arm1 == "龙卷之古始腕"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 41 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附风",2] <- data[data[,1] == "附风",2] + 10 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "风重",2] <- data[data[,1] == "风重",2] + 10 + as.numeric(input$arm_zuan1)
+    }
+    if (input$arm1 == "元破之古始腕"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 41 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 300 + 5*as.numeric(input$arm_zuan1)
+      data[data[,1] == "附元",2] <- data[data[,1] == "附元",2] + 10 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+    }
+    if (input$arm1 == "闇火之古始腕"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 41 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附火",2] <- data[data[,1] == "附火",2] + 10 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "火重",2] <- data[data[,1] == "火重",2] + 10 + as.numeric(input$arm_zuan1)
+    }
+    if (input$arm1 == "轻焰之古始腕"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 51 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附火",2] <- data[data[,1] == "附火",2] + 10 + as.numeric(input$arm_zuan1)
+    }
+    if (input$arm1 == "罂散之古始腕"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 41 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+      data[data[,1] == "附毒",2] <- data[data[,1] == "附毒",2] + 10 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 10 + as.numeric(input$arm_zuan1)
+    }
+    if (input$arm1 == "浩风之古始腕"){
+      data[data[,1] == "力",2] <- data[data[,1] == "力",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "白刃",2] <- data[data[,1] == "白刃",2] + 10 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 80 + 2*as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 41 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+    }
+    if (input$arm1 == "寒雨之古始腕"){
+      data[data[,1] == "力",2] <- data[data[,1] == "力",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "白刃",2] <- data[data[,1] == "白刃",2] + 10 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 41 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+      data[data[,1] == "附水",2] <- data[data[,1] == "附水",2] + 10 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 30
+    }
+    if (input$arm1 == "沉忧之古始腕"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 41 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 32
+      data[data[,1] == "附水",2] <- data[data[,1] == "附水",2] + 10 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 20 + as.numeric(input$arm_zuan1)
+    }
+    if (input$arm1 == "混元之古始腕"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 54 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 51 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附元",2] <- data[data[,1] == "附元",2] + 10 + as.numeric(input$arm_zuan1)
+    }
+    if (input$arm1 == "紫陌腕·玄"){
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 195 + 4*as.numeric(input$arm_zuan1)
+      data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 15 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "阴伤",2] <- data[data[,1] == "阴伤",2] + 15 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 62 + 2*as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 37 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 20
+      data[data[,1] == "知彼",2] <- data[data[,1] == "知彼",2] + 29
+    }
+    if (input$arm1 == "紫陌腕·素"){
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 77 + 2*as.numeric(input$arm_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 195 + 4*as.numeric(input$arm_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 20 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "身法",2] <- data[data[,1] == "身法",2] + 14 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 48 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "坚韧",2] <- data[data[,1] == "坚韧",2] + 14 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "定力",2] <- data[data[,1] == "定力",2] + 20 + as.numeric(input$arm_zuan1)
+    }
+    if (input$arm1 == "蓝沁腕"){
+      data[data[,1] == "力",2] <- data[data[,1] == "力",2] + 1 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 19 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 10 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 24 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 29
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 48 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 37 + as.numeric(input$arm_zuan1)
+    }
+    if (input$arm1 == "秋水落霞腕"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 14 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 10 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 12 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 50 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 52 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 40 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 16
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 63 + 2*as.numeric(input$arm_zuan1)
+      data[data[,1] == "御心",2] <- data[data[,1] == "御心",2] + 16
+    }
+    if (input$arm1 == "长天孤鹜腕"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 12 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 14 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 14 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 52 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 40 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 16
+      data[data[,1] == "最大法攻",2] <- data[data[,1] == "最大法攻",2] + 10 + as.numeric(input$arm_zuan1)
+    }
+    if (input$arm1 == "上净云水腕"){
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 9 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 69 + 2*as.numeric(input$arm_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 8 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 47 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 47 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 36 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 15
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 15
+      data[data[,1] == "最小法攻",2] <- data[data[,1] == "最小法攻",2] + 8 + as.numeric(input$arm_zuan1)
+    }
+    if (input$arm1 == "燕影之无极腕"){
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 172 + 3*as.numeric(input$arm_zuan1)
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 51 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 39 + as.numeric(input$arm_zuan1)
+      data[data[,1] == "知彼",2] <- data[data[,1] == "知彼",2] + 32
+      if (input$arm2_1 == "重击"){
+        data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 14 + as.numeric(input$arm_zuan1)
+        data[data[,1] == "阴伤",2] <- data[data[,1] == "阴伤",2] + 14 + as.numeric(input$arm_zuan1)
+      }
+      if (input$arm2_1 == "回避"){
+        data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 48 + as.numeric(input$arm_zuan1)
+      }
+      if (input$arm2_1 == "命中"){
+        data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 39 + as.numeric(input$arm_zuan1)
+      }
+      if (input$arm2_1 == "会心"){
+        data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 29 + as.numeric(input$arm_zuan1)
+      }
+      if (input$arm2_2 == "抗性"){
+        data[data[,1] == "身法",2] <- data[data[,1] == "身法",2] + 21 + as.numeric(input$arm_zuan1)
+        data[data[,1] == "坚韧",2] <- data[data[,1] == "坚韧",2] + 21 + as.numeric(input$arm_zuan1)
+        data[data[,1] == "定力",2] <- data[data[,1] == "定力",2] + 27 + as.numeric(input$arm_zuan1)
+      } else {data <- data}
+      if (input$arm2_3 == "人祸"){
+        data[data[,1] == "人祸",2] <- data[data[,1] == "人祸",2] + 16
+      }
+      if (input$arm2_3 == "疾语"){
+        data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 16
+      }
+      if (input$arm2_3 == "神明"){
+        data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 14
+      }
+    }
+    if (input$arm3_1 == "无"){
+      data <- data
+    } else {
+      if (input$arm1 %in% c("妙手之古始腕","元破之古始腕","浩风之古始腕","轻焰之古始腕",
+                            "寒雨之古始腕","闇火之古始腕","龙卷之古始腕","沉忧之古始腕",
+                            "混元之古始腕","罂散之古始腕")){
+        data[data[,1] == input$arm3_1,2] <- data[data[,1] == input$arm3_1,2] + 35 + as.numeric(input$arm_zuan2)
+      } else if (input$arm1 %in% c("秋水落霞腕","长天孤鹜腕","燕影之无极腕")){
+        data[data[,1] == input$arm3_1,2] <- data[data[,1] == input$arm3_1,2] + 34 + as.numeric(input$arm_zuan2)
+      } else if (input$arm1 %in% c("蓝沁腕","紫陌腕·玄","紫陌腕·素")){
+        data[data[,1] == input$arm3_1,2] <- data[data[,1] == input$arm3_1,2] + 32 + as.numeric(input$arm_zuan2)
+      } else if (input$arm1 == "上净云水腕"){
+        data[data[,1] == input$arm3_1,2] <- data[data[,1] == input$arm3_1,2] + 31 + as.numeric(input$arm_zuan2)
+      }
+    }
+    if (input$arm3_2 == "无"){
+      data <- data
+    } else {
+      if (input$arm1 %in% c("妙手之古始腕","元破之古始腕","浩风之古始腕","轻焰之古始腕",
+                            "寒雨之古始腕","闇火之古始腕","龙卷之古始腕","沉忧之古始腕",
+                            "混元之古始腕","罂散之古始腕")){
+        if (input$arm3_2 %in% c("附火","附水","附元","附风","附毒","白刃","阴伤","崩击","水重","火重","风重",
+                                "元重","毒重")){
+          data[data[,1] == input$arm3_2,2] <- data[data[,1] == input$arm3_2,2] + 17 + as.numeric(input$arm_zuan2)
+        } else {
+          data[data[,1] == input$arm3_2,2] <- data[data[,1] == input$arm3_2,2] + 35 + 2*as.numeric(input$arm_zuan2)
+        }
+      } else if (input$arm1 %in% c("秋水落霞腕","长天孤鹜腕","燕影之无极腕")){
+        if (input$arm3_2 %in% c("附火","附水","附元","附风","附毒","白刃","阴伤","崩击","水重","火重","风重",
+                                "元重","毒重")){
+          data[data[,1] == input$arm3_2,2] <- data[data[,1] == input$arm3_2,2] + 17 + as.numeric(input$arm_zuan2)
+        } else {
+          data[data[,1] == input$arm3_2,2] <- data[data[,1] == input$arm3_2,2] + 34 + 2*as.numeric(input$arm_zuan2)
+        }
+      } else if (input$arm1 %in% c("蓝沁腕","紫陌腕·玄","紫陌腕·素")){
+        if (input$arm3_2 %in% c("附火","附水","附元","附风","附毒","白刃","阴伤","崩击","水重","火重","风重",
+                                "元重","毒重")){
+          data[data[,1] == input$arm3_2,2] <- data[data[,1] == input$arm3_2,2] + 16 + as.numeric(input$arm_zuan2)
+        } else {
+          data[data[,1] == input$arm3_2,2] <- data[data[,1] == input$arm3_2,2] + 32 + 2*as.numeric(input$arm_zuan2)
+        }
+      } else if (input$arm1 == "上净云水腕"){
+        if (input$arm3_2 %in% c("附火","附水","附元","附风","附毒","白刃","阴伤","崩击","水重","火重","风重",
+                                "元重","毒重")){
+          data[data[,1] == input$arm3_2,2] <- data[data[,1] == input$arm3_2,2] + 15 + as.numeric(input$arm_zuan2)
+        } else {
+          data[data[,1] == input$arm3_2,2] <- data[data[,1] == input$arm3_2,2] + 31 + 2*as.numeric(input$arm_zuan2)
+        }
+      }
+    }
+    if (input$arm3_3 == "无"){
+      data <- data
+    } else {
+      if (input$arm1 %in% c("妙手之古始腕","元破之古始腕","浩风之古始腕","轻焰之古始腕",
+                            "寒雨之古始腕","闇火之古始腕","龙卷之古始腕","沉忧之古始腕",
+                            "混元之古始腕","罂散之古始腕","秋水落霞腕","长天孤鹜腕","燕影之无极腕")){
+        data[data[,1] == input$arm3_3,2] <- data[data[,1] == input$arm3_3,2] + 47 
+      } else if (input$arm1 %in% c("蓝沁腕","紫陌腕·玄","紫陌腕·素","上净云水腕")){
+        data[data[,1] == input$arm3_3,2] <- data[data[,1] == input$arm3_3,2] + 43
+      } 
+    }
+    if (input$arm3_4 == "无"){
+      data <- data
+    } else {
+      if (input$arm1 %in% c("妙手之古始腕","元破之古始腕","浩风之古始腕","轻焰之古始腕",
+                            "寒雨之古始腕","闇火之古始腕","龙卷之古始腕","沉忧之古始腕",
+                            "混元之古始腕","罂散之古始腕")){
+        if (input$arm3_4 %in% c("最大物攻","最大法攻")){
+          data[data[,1] == input$arm3_4,2] <- data[data[,1] == input$arm3_4,2] + 17 + as.numeric(input$arm_zuan2)
+        } else {
+          data[data[,1] == input$arm3_4,2] <- data[data[,1] == input$arm3_4,2] + 35 + 2*as.numeric(input$arm_zuan2)
+        }
+      } else if (input$arm1 %in% c("秋水落霞腕","长天孤鹜腕","燕影之无极腕")){
+        if (input$arm3_4 %in% c("最大物攻","最大法攻")){
+          data[data[,1] == input$arm3_4,2] <- data[data[,1] == input$arm3_4,2] + 17 + as.numeric(input$arm_zuan2)
+        } else {
+          data[data[,1] == input$arm3_4,2] <- data[data[,1] == input$arm3_4,2] + 34 + 2*as.numeric(input$arm_zuan2)
+        }
+      } else if (input$arm1 %in% c("蓝沁腕","紫陌腕·玄","紫陌腕·素")){
+        if (input$arm3_4 %in% c("最大物攻","最大法攻")){
+          data[data[,1] == input$arm3_4,2] <- data[data[,1] == input$arm3_4,2] + 16 + as.numeric(input$arm_zuan2)
+        } else {
+          data[data[,1] == input$arm3_4,2] <- data[data[,1] == input$arm3_4,2] + 32 + 2*as.numeric(input$arm_zuan2)
+        }
+      } else if (input$arm1 == "上净云水腕"){
+        if (input$arm3_4 %in% c("最大物攻","最大法攻")){
+          data[data[,1] == input$arm3_4,2] <- data[data[,1] == input$arm3_4,2] + 15 + as.numeric(input$arm_zuan2)
+        } else {
+          data[data[,1] == input$arm3_4,2] <- data[data[,1] == input$arm3_4,2] + 31 + 2*as.numeric(input$arm_zuan2)
+        }
+      }
+    }
+    if (input$arm4 == "无"){
+      data <- data
+    } else {
+      data[data[,1] == input$arm4,2] <- data[data[,1] == input$arm4,2] + 9
+    } 
+    ########履###################
+    if (input$shoes1 == "妙手之古始履"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 202 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 47
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 40
+    }
+    if (input$shoes1 == "龙卷之古始履"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 202 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附风",2] <- data[data[,1] == "附风",2] + 10 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "风重",2] <- data[data[,1] == "风重",2] + 10 + as.numeric(input$shoes_zuan1)
+    }
+    if (input$shoes1 == "元破之古始履"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 202 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 405 + 7*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "附元",2] <- data[data[,1] == "附元",2] + 10 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+    }
+    if (input$shoes1 == "闇火之古始履"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 202 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附火",2] <- data[data[,1] == "附火",2] + 10 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "火重",2] <- data[data[,1] == "火重",2] + 10 + as.numeric(input$shoes_zuan1)
+    }
+    if (input$shoes1 == "轻焰之古始履"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 202 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附火",2] <- data[data[,1] == "附火",2] + 10 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 10 + as.numeric(input$shoes_zuan1)
+    }
+    if (input$shoes1 == "罂散之古始履"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 202 + 5*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+      data[data[,1] == "附毒",2] <- data[data[,1] == "附毒",2] + 10 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 10 + as.numeric(input$shoes_zuan1)
+    }
+    if (input$shoes1 == "浩风之古始履"){
+      data[data[,1] == "力",2] <- data[data[,1] == "力",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "白刃",2] <- data[data[,1] == "白刃",2] + 10 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 202 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 108 + 2*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+    }
+    if (input$shoes1 == "寒雨之古始履"){
+      data[data[,1] == "力",2] <- data[data[,1] == "力",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "白刃",2] <- data[data[,1] == "白刃",2] + 10 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 202 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 32
+      data[data[,1] == "附水",2] <- data[data[,1] == "附水",2] + 10 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 40
+    }
+    if (input$shoes1 == "沉忧之古始履"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 202 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 32
+      data[data[,1] == "附水",2] <- data[data[,1] == "附水",2] + 15 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$shoes_zuan1)
+    }
+    if (input$shoes1 == "混元之古始履"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 27 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 202 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 130 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 32
+      data[data[,1] == "附元",2] <- data[data[,1] == "附元",2] + 10 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 10 + as.numeric(input$shoes_zuan1)
+    }
+    if (input$shoes1 == "紫陌履·玄"){
+      data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 18 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 240 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 20 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "阴伤",2] <- data[data[,1] == "阴伤",2] + 20 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 180 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 117 + 2*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 26
+      data[data[,1] == "知彼",2] <- data[data[,1] == "知彼",2] + 29
+    }
+    if (input$shoes1 == "紫陌履·素"){
+      data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 52 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 240 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 143 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "身法",2] <- data[data[,1] == "身法",2] + 18 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 180 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "坚韧",2] <- data[data[,1] == "坚韧",2] + 18 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "定力",2] <- data[data[,1] == "定力",2] + 26 + as.numeric(input$shoes_zuan1)
+    }
+    if (input$shoes1 == "蓝沁履"){
+      data[data[,1] == "敏",2] <- data[data[,1] == "敏",2] + 5 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 26 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 10 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 31 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 29
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 180 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 117 + 2*as.numeric(input$shoes_zuan1)
+    }
+    if (input$shoes1 == "秋水落霞履"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 18 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 12 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 14 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 195 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 65 + 2*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 126 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "追电",2] <- data[data[,1] == "追电",2] + 16
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 85 + 2*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "御心",2] <- data[data[,1] == "御心",2] + 16
+    }
+    if (input$shoes1 == "长天孤鹜履"){
+      data[data[,1] == "念",2] <- data[data[,1] == "念",2] + 14 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "魂",2] <- data[data[,1] == "魂",2] + 18 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 18 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 195 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "回避",2] + 126 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 16
+      data[data[,1] == "最大法攻",2] <- data[data[,1] == "最大法攻",2] + 11 + as.numeric(input$shoes_zuan1)
+    }
+    if (input$shoes1 == "上净云水履"){
+      data[data[,1] == "体",2] <- data[data[,1] == "体",2] + 12 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 87 + 2*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "疾",2] <- data[data[,1] == "疾",2] + 11 + as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 177 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "物防",2] <- data[data[,1] == "物防",2] + 59 +  as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "回避",2] + 115 + 2*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 19
+      data[data[,1] == "明思",2] <- data[data[,1] == "明思",2] + 15
+      data[data[,1] == "最小法攻",2] <- data[data[,1] == "最小法攻",2] + 11 + as.numeric(input$shoes_zuan1)
+    }
+    if (input$shoes1 == "燕影之无极履"){
+      data[data[,1] == "生命值",2] <- data[data[,1] == "生命值",2] + 230 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "法防",2] <- data[data[,1] == "法防",2] + 192 + 4*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 125 + 3*as.numeric(input$shoes_zuan1)
+      data[data[,1] == "知彼",2] <- data[data[,1] == "知彼",2] + 32
+      if (input$shoes2_1 == "重击"){
+        data[data[,1] == "毒重",2] <- data[data[,1] == "毒重",2] + 19 + as.numeric(input$shoes_zuan1)
+        data[data[,1] == "阴伤",2] <- data[data[,1] == "阴伤",2] + 19 + as.numeric(input$shoes_zuan1)
+      }
+      if (input$shoes2_1 == "回避"){
+        data[data[,1] == "回避",2] <- data[data[,1] == "回避",2] + 65 + as.numeric(input$shoes_zuan1)
+      }
+      if (input$shoes2_1 == "命中"){
+        data[data[,1] == "命中",2] <- data[data[,1] == "命中",2] + 52 + as.numeric(input$shoes_zuan1)
+      }
+      if (input$shoes2_1 == "会心"){
+        data[data[,1] == "会心",2] <- data[data[,1] == "会心",2] + 39 + as.numeric(input$shoes_zuan1)
+      }
+      if (input$shoes2_2 == "抗性"){
+        data[data[,1] == "身法",2] <- data[data[,1] == "身法",2] + 28 + as.numeric(input$shoes_zuan1)
+        data[data[,1] == "坚韧",2] <- data[data[,1] == "坚韧",2] + 28 + as.numeric(input$shoes_zuan1)
+        data[data[,1] == "定力",2] <- data[data[,1] == "定力",2] + 36 + as.numeric(input$shoes_zuan1)
+      } else {data <- data}
+      if (input$shoes2_3 == "人祸"){
+        data[data[,1] == "人祸",2] <- data[data[,1] == "人祸",2] + 16
+      }
+      if (input$shoes2_3 == "疾语"){
+        data[data[,1] == "疾语",2] <- data[data[,1] == "疾语",2] + 16
+      }
+      if (input$shoes2_3 == "神明"){
+        data[data[,1] == "神明",2] <- data[data[,1] == "神明",2] + 18
+      }
+    }
+    if (input$shoes4 == "无"){
+      data <- data
+    } else {
+      data[data[,1] == input$shoes4,2] <- data[data[,1] == input$shoes4,2] + 9
+    } 
+    
     
     
     
