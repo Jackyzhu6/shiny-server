@@ -22,6 +22,7 @@ shinyServer(function(input, output) {
       z <- z[which(z != " ")]
       x <- sort(table(z),decreasing = TRUE)[1:40]
       ylim <- c(0, 1.1*max(x))
+      par(family='STKaiti') 
       xx <- barplot(x,xaxt = 'n', xlab = '', width = 0.85,ylim = ylim,main = "名字用字分布",ylab = "人数")
       text(x = xx, y = x, label = x, pos = 3, cex = 0.8, col = "red")
       axis(1, at=xx, labels=names(x), tick=FALSE, las=2, line=-0.5, cex.axis=0.8)
@@ -32,6 +33,7 @@ shinyServer(function(input, output) {
         x <- x[1:40]
       }
       ylim <- c(0, 1.1*max(x))
+      par(family='STKaiti') 
       xx <- barplot(x,xaxt = 'n', xlab = '', width = 0.85,ylim = ylim,main = paste(input$distribution,"分布",sep = ""),ylab = "人数")
       text(x = xx, y = x, label = x, pos = 3, cex = 0.8, col = "red")
       axis(1, at=xx, labels=names(x), tick=FALSE, las=2, line=-0.5, cex.axis=0.8)
