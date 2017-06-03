@@ -44,7 +44,7 @@ shinyUI(fluidPage(
   
   mainPanel(
             tabsetPanel(
-              tabPanel("分布总览",plotOutput("myplot1")),
+              tabPanel("分布总览",tableOutput("myplot1")),
               tabPanel("属性排序",tableOutput("mytable1")),
               tabPanel("相似度",tableOutput("mytable2"))
               

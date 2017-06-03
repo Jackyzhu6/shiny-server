@@ -20,23 +20,19 @@ shinyServer(function(input, output) {
     if (input$distribution == "名字用字"){
       z <- unlist(strsplit(data[,2],split = ""))
       z <- z[which(z != " ")]
-      x <- sort(table(z),decreasing = TRUE)[1:40]
-      ylim <- c(0, 1.1*max(x))
-      par(family='STKaiti') 
-      xx <- barplot(x,xaxt = 'n', xlab = '', width = 0.85,ylim = ylim,main = "名字用字分布",ylab = "人数")
-      text(x = xx, y = x, label = x, pos = 3, cex = 0.8, col = "red")
-      axis(1, at=xx, labels=names(x), tick=FALSE, las=2, line=-0.5, cex.axis=0.8)
+      x <- sort(table(z),decreasing = TRUE)[1:100]
+      distr <- data.frame(names(x),as.character(x))
+      names(distr) <- c("名字用字","频数")
+      distr
     } else {
       z <- data[,which(dataname == input$distribution)]
       x <- sort(table(z),decreasing = TRUE)
-      if (length(x) > 40){
-        x <- x[1:40]
+      if (length(x) > 100){
+        x <- x[1:100]
       }
-      ylim <- c(0, 1.1*max(x))
-      par(family='STKaiti') 
-      xx <- barplot(x,xaxt = 'n', xlab = '', width = 0.85,ylim = ylim,main = paste(input$distribution,"分布",sep = ""),ylab = "人数")
-      text(x = xx, y = x, label = x, pos = 3, cex = 0.8, col = "red")
-      axis(1, at=xx, labels=names(x), tick=FALSE, las=2, line=-0.5, cex.axis=0.8)
+      distr <- data.frame(names(x),as.character(x))
+      names(distr) <- c(input$distribution,"频数")
+      distr
     }
   })
   similarity <- reactive({
@@ -115,7 +111,7 @@ shinyServer(function(input, output) {
   output$mytable1 <- renderTable(
     paixu()
   )
-  output$myplot1 <- renderPlot(
+  output$myplot1 <- renderTable(
     distributionplot()
   )
   output$mytable2 <- renderTable(
