@@ -1,11 +1,19 @@
 library(shiny)
 library(XML)
-data <- read.csv("BX_79data.csv",header = TRUE,stringsAsFactors = FALSE)
+data <- read.csv("BX_79data.csv",header = FALSE,stringsAsFactors = FALSE)
 data <- data[,-1]
+dataname <- c("英雄榜","昵称","大区","服务器","等级","门派","势力","装评","力","魂","体","敏","疾","念","最小物攻","最大物攻","最小法攻",
+              "最大法攻","命中","会心","附伤","重击","诛心","御心","万钧","铁壁","人祸","疾语",
+              "追电","物防","法防","生命值","技力值","神明","回避","知彼","耳环一","头冠","耳环二",
+              "肩膀","手镯一","翅膀","衣服","手镯二","护腕","腰带","武器","戒指一","下摆","副手",
+              "戒指二","裤子","项链","玉佩","鞋")
+
 shinyServer(function(input, output) {
   paixu <- reactive({
-    n <- which(names(data) == input$sort)
+    n <- which(dataname == input$sort)
     result <- data[order(-data[,n])[1:50],c(1:4,n)]
+    names(result) <- dataname[c(1:4,n)]
+    result
   }
 )
   distributionplot <- reactive({
@@ -18,7 +26,7 @@ shinyServer(function(input, output) {
       text(x = xx, y = x, label = x, pos = 3, cex = 0.8, col = "red")
       axis(1, at=xx, labels=names(x), tick=FALSE, las=2, line=-0.5, cex.axis=0.8)
     } else {
-      z <- data[,which(names(data) == input$distribution)]
+      z <- data[,which(dataname == input$distribution)]
       x <- sort(table(z),decreasing = TRUE)
       if (length(x) > 40){
         x <- x[1:40]
@@ -98,6 +106,7 @@ shinyServer(function(input, output) {
     large <- order(-sim)[1:10]
     zz <- c(large,small)
     r <- data.frame(data[zz,1:4],相似度 = c(rep("最相似",10),rep("最不相似",10)))
+    names(r)[1:4] <- dataname[1:4]
     r
   })
   
