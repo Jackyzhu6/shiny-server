@@ -1,6 +1,6 @@
 library(shiny)
 library(XML)
-data <- read.csv("BX_79data.csv",header = FALSE,stringsAsFactors = FALSE)
+data <- read.table("BX_79data.txt",header = TRUE,stringsAsFactors = FALSE)
 data <- data[,-1]
 dataname <- c("英雄榜","昵称","大区","服务器","等级","门派","势力","装评","力","魂","体","敏","疾","念","最小物攻","最大物攻","最小法攻",
               "最大法攻","命中","会心","附伤","重击","诛心","御心","万钧","铁壁","人祸","疾语",
