@@ -1,5 +1,7 @@
+# Cairo包的PNG设备似乎无法显示中文字符，强制使用R自身的png()设备
 options(shiny.usecairo = FALSE)
 
+# 请忽略以下代码，它只是为了解决ShinyApps上没有中文字体的问题
 font_home <- function(path = '') file.path('~', '.fonts', path)
 if (Sys.info()[['sysname']] == 'Linux' &&
       system('locate wqy-zenhei.ttc') != 0 &&
