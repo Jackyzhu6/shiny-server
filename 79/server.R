@@ -9,12 +9,12 @@ shinyServer(function(input, output) {
   }
 )
   distributionplot <- reactive({
-    if (input$distribution == "Ãû×ÖÓÃ×Ö"){
+    if (input$distribution == "åå­—ç”¨å­—"){
       z <- unlist(strsplit(data[,2],split = ""))
       z <- z[which(z != " ")]
       x <- sort(table(z),decreasing = TRUE)[1:40]
       ylim <- c(0, 1.1*max(x))
-      xx <- barplot(x,xaxt = 'n', xlab = '', width = 0.85,ylim = ylim,main = "Ãû×ÖÓÃ×Ö·Ö²¼",ylab = "ÈËÊý")
+      xx <- barplot(x,xaxt = 'n', xlab = '', width = 0.85,ylim = ylim,main = "åå­—ç”¨å­—åˆ†å¸ƒ",ylab = "äººæ•°")
       text(x = xx, y = x, label = x, pos = 3, cex = 0.8, col = "red")
       axis(1, at=xx, labels=names(x), tick=FALSE, las=2, line=-0.5, cex.axis=0.8)
     } else {
@@ -24,7 +24,7 @@ shinyServer(function(input, output) {
         x <- x[1:40]
       }
       ylim <- c(0, 1.1*max(x))
-      xx <- barplot(x,xaxt = 'n', xlab = '', width = 0.85,ylim = ylim,main = paste(input$distribution,"·Ö²¼",sep = ""),ylab = "ÈËÊý")
+      xx <- barplot(x,xaxt = 'n', xlab = '', width = 0.85,ylim = ylim,main = paste(input$distribution,"åˆ†å¸ƒ",sep = ""),ylab = "äººæ•°")
       text(x = xx, y = x, label = x, pos = 3, cex = 0.8, col = "red")
       axis(1, at=xx, labels=names(x), tick=FALSE, las=2, line=-0.5, cex.axis=0.8)
     }
@@ -33,7 +33,7 @@ shinyServer(function(input, output) {
     validate(
       need(unlist(strsplit(input$similarity,split = "http://bang.tx3.163.com/bang/role/"))[1] == "" &
              input$similarity != "http://bang.tx3.163.com/bang/role/",
-           message  = "¸ÃÍæ¼Ò²»´æÔÚ»òÄúÊäÈëµÄÓ¢ÐÛ°ñ²»ÕýÈ·")
+           message  = "è¯¥çŽ©å®¶ä¸å­˜åœ¨æˆ–æ‚¨è¾“å…¥çš„è‹±é›„æ¦œä¸æ­£ç¡®")
     )
     pagetree<-htmlTreeParse(input$similarity, error=function(...){}, useInternalNodes = TRUE)
     name<-xpathSApply(pagetree,"//head//title",xmlValue)
@@ -44,49 +44,49 @@ shinyServer(function(input, output) {
     class <- xpathSApply(pagetree,"//span//a",xmlValue)[3]
     quality0<-xpathSApply(pagetree,"//ul//li",xmlValue)
     quality<-gsub("\t|\n|%","",quality0)
-    value<-unlist(strsplit(quality[46],split="×°±¸ÆÀ¼Û:"))[2]
+    value<-unlist(strsplit(quality[46],split="è£…å¤‡è¯„ä»·:"))[2]
     li<-quality[55]
     ji<-quality[61]
     ti<-quality[57]
     min<-quality[59]
     hun<-quality[63]
     nian<-quality[65]
-    wanjun<-unlist(strsplit(quality[86],split="Íò¾û"))[2]
-    tiebi<-unlist(strsplit(quality[87],split="Ìú±Ú"))[2]
-    mingzhong<-unlist(strsplit(quality[68],split="ÃüÖÐ"))[2]
-    fushang<-unlist(strsplit(quality[72],split="¸½¼ÓÉËº¦"))[2]
-    yuxin<-unlist(strsplit(quality[85],split="ÓùÐÄ"))[2]
-    huixin<-unlist(strsplit(quality[71],split="»áÐÄÒ»»÷"))[2]
-    zhuxin<-unlist(strsplit(quality[84],split="ÖïÐÄ"))[2]
-    speed<-unlist(strsplit(quality[89],split="×·µç"))[2]
-    renhuo<-unlist(strsplit(quality[94],split="ÈË»ö"))[2]
-    zhongji<-unlist(strsplit(quality[70],split="ÖØ»÷"))[2]
-    wugong<-unlist(strsplit(quality[67],split="¹¥Á¦"))[2]
+    wanjun<-unlist(strsplit(quality[86],split="ä¸‡é’§"))[2]
+    tiebi<-unlist(strsplit(quality[87],split="é“å£"))[2]
+    mingzhong<-unlist(strsplit(quality[68],split="å‘½ä¸­"))[2]
+    fushang<-unlist(strsplit(quality[72],split="é™„åŠ ä¼¤å®³"))[2]
+    yuxin<-unlist(strsplit(quality[85],split="å¾¡å¿ƒ"))[2]
+    huixin<-unlist(strsplit(quality[71],split="ä¼šå¿ƒä¸€å‡»"))[2]
+    zhuxin<-unlist(strsplit(quality[84],split="è¯›å¿ƒ"))[2]
+    speed<-unlist(strsplit(quality[89],split="è¿½ç”µ"))[2]
+    renhuo<-unlist(strsplit(quality[94],split="äººç¥¸"))[2]
+    zhongji<-unlist(strsplit(quality[70],split="é‡å‡»"))[2]
+    wugong<-unlist(strsplit(quality[67],split="æ”»åŠ›"))[2]
     wugong1<-unlist(strsplit(wugong,split="-"))[1]
     wugong2<-unlist(strsplit(wugong,split="-"))[2]
-    fagong<-unlist(strsplit(quality[69],split="·¨Á¦"))[2]
+    fagong<-unlist(strsplit(quality[69],split="æ³•åŠ›"))[2]
     fagong1<-unlist(strsplit(fagong,split="-"))[1]
     fagong2<-unlist(strsplit(fagong,split="-"))[2]
-    sing<-unlist(strsplit(quality[91],split="¼²Óï"))[2]
-    defence<-unlist(strsplit(quality[74],split="·ÀÓù"))[2]
-    fafang<-unlist(strsplit(quality[76],split="·¨·À"))[2]
+    sing<-unlist(strsplit(quality[91],split="ç–¾è¯­"))[2]
+    defence<-unlist(strsplit(quality[74],split="é˜²å¾¡"))[2]
+    fafang<-unlist(strsplit(quality[76],split="æ³•é˜²"))[2]
     blood<-quality[51]
     mana<-quality[53]
-    shenming<-unlist(strsplit(quality[77],split="ÉñÃ÷"))[2]
-    huibi<-unlist(strsplit(quality[75],split="»Ø±Ü"))[2]
-    zhibi<-unlist(strsplit(quality[79],split="Öª±Ë"))[2]
+    shenming<-unlist(strsplit(quality[77],split="ç¥žæ˜Ž"))[2]
+    huibi<-unlist(strsplit(quality[75],split="å›žé¿"))[2]
+    zhibi<-unlist(strsplit(quality[79],split="çŸ¥å½¼"))[2]
     zhuangbei<-xpathSApply(pagetree,"//div//h3",xmlValue)
     n <- length(zhuangbei)
     zhuangbei <- zhuangbei[1:(n-2)]
-    Zhuangbei<-rep("ÎÞÐ§",19)
+    Zhuangbei<-rep("æ— æ•ˆ",19)
     if (length(zhuangbei)==19){
       Zhuangbei<-zhuangbei}
     result <- c(Name,rank,school,class,value,li,hun,ti,min,ji,nian,wugong1,wugong2,fagong1,fagong2,mingzhong,huixin,fushang,zhongji,zhuxin,yuxin,wanjun,tiebi,renhuo,sing,speed,defence,fafang,blood,mana,shenming,huibi,zhibi,Zhuangbei)
-    names <- c("êÇ³Æ","µÈ¼¶","ÃÅÅÉ","ÊÆÁ¦","×°ÆÀ","Á¦","»ê","Ìå","Ãô","¼²","Äî","×îÐ¡Îï¹¥","×î´óÎï¹¥","×îÐ¡·¨¹¥",
-               "×î´ó·¨¹¥","ÃüÖÐ","»áÐÄ","¸½ÉË","ÖØ»÷","ÖïÐÄ","ÓùÐÄ","Íò¾û","Ìú±Ú","ÈË»ö","¼²Óï",
-               "×·µç","Îï·À","·¨·À","ÉúÃüÖµ","¼¼Á¦Öµ","ÉñÃ÷","»Ø±Ü","Öª±Ë","¶ú»·Ò»","Í·¹Ú","¶ú»·¶þ",
-               "¼ç°ò","ÊÖïíÒ»","³á°ò","ÒÂ·þ","ÊÖïí¶þ","»¤Íó","Ñü´ø","ÎäÆ÷","½äÖ¸Ò»","ÏÂ°Ú","¸±ÊÖ",
-               "½äÖ¸¶þ","¿ã×Ó","ÏîÁ´","ÓñÅå","Ð¬")
+    names <- c("æ˜µç§°","ç­‰çº§","é—¨æ´¾","åŠ¿åŠ›","è£…è¯„","åŠ›","é­‚","ä½“","æ•","ç–¾","å¿µ","æœ€å°ç‰©æ”»","æœ€å¤§ç‰©æ”»","æœ€å°æ³•æ”»",
+               "æœ€å¤§æ³•æ”»","å‘½ä¸­","ä¼šå¿ƒ","é™„ä¼¤","é‡å‡»","è¯›å¿ƒ","å¾¡å¿ƒ","ä¸‡é’§","é“å£","äººç¥¸","ç–¾è¯­",
+               "è¿½ç”µ","ç‰©é˜²","æ³•é˜²","ç”Ÿå‘½å€¼","æŠ€åŠ›å€¼","ç¥žæ˜Ž","å›žé¿","çŸ¥å½¼","è€³çŽ¯ä¸€","å¤´å† ","è€³çŽ¯äºŒ",
+               "è‚©è†€","æ‰‹é•¯ä¸€","ç¿…è†€","è¡£æœ","æ‰‹é•¯äºŒ","æŠ¤è…•","è…°å¸¦","æ­¦å™¨","æˆ’æŒ‡ä¸€","ä¸‹æ‘†","å‰¯æ‰‹",
+               "æˆ’æŒ‡äºŒ","è£¤å­","é¡¹é“¾","çŽ‰ä½©","éž‹")
     final <- data.frame(t(result), stringsAsFactors = FALSE)
     names(final) <- names
     final_data <- as.numeric(final[,6:33])
@@ -97,7 +97,7 @@ shinyServer(function(input, output) {
     small <- order(sim)[1:10]
     large <- order(-sim)[1:10]
     zz <- c(large,small)
-    r <- data.frame(data[zz,1:4],ÏàËÆ¶È = c(rep("×îÏàËÆ",10),rep("×î²»ÏàËÆ",10)))
+    r <- data.frame(data[zz,1:4],ç›¸ä¼¼åº¦ = c(rep("æœ€ç›¸ä¼¼",10),rep("æœ€ä¸ç›¸ä¼¼",10)))
     r
   })
   
