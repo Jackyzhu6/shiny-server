@@ -1,22 +1,32 @@
 library(shiny)
 library(XML)
-data <- read.table("BX_79data.txt",header = TRUE,stringsAsFactors = FALSE)
-data <- data[,-1]
+data <- read.table("data_79.txt",header = TRUE,stringsAsFactors = FALSE)
 dataname <- c("英雄榜","昵称","大区","服务器","等级","门派","势力","装评","力","魂","体","敏","疾","念","最小物攻","最大物攻","最小法攻",
               "最大法攻","命中","会心","附伤","重击","诛心","御心","万钧","铁壁","人祸","疾语",
               "追电","物防","法防","生命值","技力值","神明","回避","知彼","耳环一","头冠","耳环二",
               "肩膀","手镯一","翅膀","衣服","手镯二","护腕","腰带","武器","戒指一","下摆","副手",
               "戒指二","裤子","项链","玉佩","鞋")
 
+
 shinyServer(function(input, output) {
-  paixu <- reactive({
+    paixu <- reactive({
+      if (input$school == "所有门派"){
+        data <- data
+      } else {
+        data <- data[data[,6] == input$school,]
+      }
     n <- which(dataname == input$sort)
-    result <- data[order(-data[,n])[1:50],c(1:4,n)]
-    names(result) <- dataname[c(1:4,n)]
+    result <- data[order(-data[,n])[1:50],c(1:6,n)]
+    names(result) <- dataname[c(1:6,n)]
     result
   }
 )
   distributionplot <- reactive({
+    if (input$school == "所有门派"){
+      data <- data
+    } else {
+      data <- data[data[,6] == input$school,]
+    }
     if (input$distribution == "名字用字"){
       z <- unlist(strsplit(data[,2],split = ""))
       z <- z[which(z != " ")]
@@ -36,6 +46,11 @@ shinyServer(function(input, output) {
     }
   })
   similarity <- reactive({
+    if (input$school == "所有门派"){
+      data <- data
+    } else {
+      data <- data[data[,6] == input$school,]
+    }
     validate(
       need(unlist(strsplit(input$similarity,split = "http://bang.tx3.163.com/bang/role/"))[1] == "" &
              input$similarity != "http://bang.tx3.163.com/bang/role/",
@@ -100,11 +115,11 @@ shinyServer(function(input, output) {
     for (i in 1:dim(data)[1]){
       sim[i] <- cor(as.numeric(data[i,9:36]),final_data)
     }
-    small <- order(sim)[1:10]
-    large <- order(-sim)[1:10]
+    small <- order(sim)[1:20]
+    large <- order(-sim)[1:20]
     zz <- c(large,small)
-    r <- data.frame(data[zz,1:4],相似度 = c(rep("最相似",10),rep("最不相似",10)))
-    names(r)[1:4] <- dataname[1:4]
+    r <- data.frame(data[zz,1:6],相似度 = c(rep("最相似",20),rep("最不相似",20)))
+    names(r)[1:6] <- dataname[1:6]
     r
   })
   
