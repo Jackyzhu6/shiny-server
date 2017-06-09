@@ -5,27 +5,44 @@ shinyUI(fluidPage(
                             .shiny-split-layout > div {
                             overflow: visible;
                             }
-                            #personal,#weapon,#head,#clothes,#shoulder,#pant,#arm,#belt,#shoes,#short{
+                            #myplot1,#mytable1,#mytable2,#mytable3,#title{
                             font-size: 12px;
                             font-family: 'Times New Roman', 'Microsoft YaHei', '微软雅黑';
-                            color: brown;
-                            background-color: #4CBDBD;
+                            color: green;
+                            }
+                            #text1{
+                            font-size: 12px;
+                            font-family: 'Times New Roman', 'Microsoft YaHei', '微软雅黑';
+                            color: red;
+                            }
+                            #personal{
+                            font-size: 12px;
+                            font-family: 'Times New Roman', 'Microsoft YaHei', '微软雅黑';
+                            color: black;
+                            background-image: url('http://pic2.52pk.com/files/091117/2272_135318_1_lit.jpg');
+                            background-size: 600px 500px;
                             }
                             "))),
   tags$head(includeScript("google-analytics.js")),
   div(
     h1("七星沧海断飞云，九玄罂粟落梨花 - 79战场数据库"),
-    p(a("天下3论坛",href = "http://tx3.netease.com/",stype = "color:red;"),
-      "用户",a("ibm20023",href = "http://tx3.netease.com/space-uid-828023.html"),"原创",
+    p(a("天下3论坛",href = "http://tx3.netease.com/",stype = "color:red;",target = "_blank"),
+      "用户",a("ibm20023",href = "http://tx3.netease.com/space-uid-828023.html",target = "_blank"),"原创。",
       style = "text-align: right;
       color: black;"),
     style = "color: red;
     font-family: 'Times New Roman', 'Microsoft YaHei', '微软雅黑';
     text-align: center;
     "),
+    p("最新信息请关注我的",a("新浪微博",href = "http://weibo.com/alexgenius?is_hot=1",target = "_blank"),
+      style = "text-align: right;
+      color: blue;"),
+    p("App版本:2.0",style = "text-align: right;
+      color: blue;"),
   sidebarPanel(id = "personal",
                p("此在线App提取2017年6月4日10点前英雄榜所有75-79级70000装评以上玩家的数据，如果您的号符合上述条件但是
                  不在列表中，请私信联系",a("作者",href = "http://tx3.netease.com/space-uid-828023.html"),"，谢谢！"),
+               textInput("value","请输入您所关心的装评上限,不小于75000","120000"),
                selectInput("school","请选择您要查看的门派",choices = c("所有门派","荒火教","天机营","冰心堂",
                                                              "弈剑听雨阁","翎羽山庄","魍魉","太虚观","龙巫宫",
                                                              "鬼墨","云麓仙居")),
@@ -33,24 +50,27 @@ shinyUI(fluidPage(
                                                                   "耳环二","戒指一","戒指二","项链","玉佩","手镯一",
                                                                   "手镯二","武器","副手","头冠","肩膀","衣服",
                                                                   "护腕","腰带","下摆","裤子","鞋")),
-               selectInput("sort","属性排序,显示前50名,请选择属性名称,并在右侧列表中查看",choices = c("装评","敏","力","魂","念","疾","体",
+               selectInput("sort","单项属性排名,显示前50名,请选择属性名称,并在右侧列表中查看",choices = c("装评","修为","敏","力","魂","念","疾","体",
                                                             "最小物攻","最大物攻","最小法攻","最大法攻","命中",
                                                             "会心","重击","诛心","御心","万钧","铁壁","人祸","附伤",
-                                                            "疾语","追电","物防","法防","生命值","技力值","神明",
+                                                            "疾语","追电","骤雨","物防","法防","生命值","技力值","神明",
                                                             "回避","知彼")),
-               textInput("similarity","相似度,请输入您的英雄榜，并在右侧列表中查看与您属性最相近和最相反的各20名玩家",
+               textInput("similarity","请输入您要查看的玩家英雄榜，即可在右侧查看您的相关属性排名以及附近的20名玩家，
+                         并可以相似度列表中查看与您属性最相近和最相反的各20名玩家。注：不输入此项并不影响查看右侧前三项功能",
                          "")
+
+               
                
   ),
  
                
   
   mainPanel(
-            tabsetPanel(
+            tabsetPanel(id = "title",
               tabPanel("分布总览",tableOutput("myplot1")),
-              tabPanel("属性排序",tableOutput("mytable1")),
+              tabPanel("单项属性排名",tableOutput("mytable1")),
+              tabPanel("您的相关属性排名",textOutput("text1"),tableOutput("mytable3")),
               tabPanel("相似度",tableOutput("mytable2"))
-              
             )
             
   )
