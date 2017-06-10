@@ -34,7 +34,7 @@ shinyUI(fluidPage(
   br(),
   br(),
   h4("其他功能:",style = "color:blue;"),
-  h5(a("乘风斩妖魔天地间，强弩化飞烟 —— 79弈剑伤害模拟器",href = "http://159.203.121.218/Jacky/79YJ/",target = "_blank",
+  h5(a("乘风斩妖天地间，强弩化飞烟 —— 79弈剑伤害模拟器",href = "http://159.203.121.218/Jacky/79YJ/",target = "_blank",
       style = "color:red;")),
   br(),
   br(),
