@@ -1,6 +1,6 @@
 library(shiny)
 library(XML)
-data <- read.table("data_74_20170609.txt",header = TRUE,stringsAsFactors = FALSE)
+data <- read.table("data_69_20170609.txt",header = TRUE,stringsAsFactors = FALSE)
 dataname <- c("英雄榜","昵称","大区","服务器","等级","门派","势力","装评","修为","力","魂","体","敏","疾","念","最小物攻","最大物攻","最小法攻",
               "最大法攻","命中","会心","附伤","重击","诛心","御心","万钧","铁壁","人祸","疾语",
               "追电","骤雨","物防","法防","生命值","技力值","神明","回避","知彼","耳环一","头冠","耳环二",
@@ -11,8 +11,8 @@ dataname <- c("英雄榜","昵称","大区","服务器","等级","门派","势�
 shinyServer(function(input, output) {
   paixu <- reactive({
     validate(
-      need(as.numeric(input$value) > 70000,
-           message  = "请在装评上限输入70000以上的数字")
+      need(as.numeric(input$value) > 65000,
+           message  = "请在装评上限输入65000以上的数字")
     )
     data <- data[data[,8] < as.numeric(input$value),]
     if (input$school == "所有门派"){
@@ -30,8 +30,8 @@ shinyServer(function(input, output) {
   )
   personal <- reactive({
     validate(
-      need(as.numeric(input$value) > 70000,
-           message  = "请在装评上限输入70000以上的数字")
+      need(as.numeric(input$value) > 65000,
+           message  = "请在装评上限输入65000以上的数字")
     )
     data <- data[data[,8] < as.numeric(input$value),]
     if (input$school == "所有门派"){
@@ -61,8 +61,8 @@ shinyServer(function(input, output) {
   
   personal2 <- reactive({
     validate(
-      need(as.numeric(input$value) > 70000,
-           message  = "请在装评上限输入70000以上的数字")
+      need(as.numeric(input$value) > 65000,
+           message  = "请在装评上限输入65000以上的数字")
     )
     data <- data[data[,8] < as.numeric(input$value),]
     if (input$school == "所有门派"){
@@ -87,8 +87,8 @@ shinyServer(function(input, output) {
   
   distributionplot <- reactive({
     validate(
-      need(as.numeric(input$value) > 70000,
-           message  = "请在装评上限输入70000以上的数字")
+      need(as.numeric(input$value) > 65000,
+           message  = "请在装评上限输入65000以上的数字")
     )
     data <- data[data[,8] < as.numeric(input$value),]
     if (input$school == "所有门派"){
@@ -116,8 +116,8 @@ shinyServer(function(input, output) {
   })
   similarity <- reactive({
     validate(
-      need(as.numeric(input$value) > 70000,
-           message  = "请在装评上限输入70000以上的数字")
+      need(as.numeric(input$value) > 65000,
+           message  = "请在装评上限输入65000以上的数字")
     )
     data <- data[data[,8] < as.numeric(input$value),]
     if (input$school == "所有门派"){

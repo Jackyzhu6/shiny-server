@@ -24,9 +24,9 @@ shinyUI(fluidPage(
                             }
                             "))),
   tags$head(includeScript("google-analytics.js")),
-  headerPanel(windowTitle = "74战场数据库",title = ""),
+  headerPanel(windowTitle = "69战场数据库",title = ""),
   div(
-    h1("七绝仙魔阵，四海夜狼声 - 74战场数据库"),
+    h1("六朝寒暑空余念，九霄龙吟恨苍天 —— 69战场玩家属性数据库"),
     p(a("天下3论坛",href = "http://tx3.netease.com/",stype = "color:red;",target = "_blank"),
       "用户",a("ibm20023",href = "http://tx3.netease.com/space-uid-828023.html",target = "_blank"),"原创。",
       style = "text-align: right;
@@ -41,9 +41,9 @@ shinyUI(fluidPage(
   p("App版本:2.0",style = "text-align: right;
     color: blue;"),
   sidebarPanel(id = "personal",
-               p("此在线App提取2017年6月10日12点前英雄榜所有70-74级65000装评以上玩家的数据，如果您的号符合上述条件但是
+               p("此在线App提取2017年6月10日12点前英雄榜所有60-69级60000装评以上玩家的数据，如果您的号符合上述条件但是
                  不在列表中，请私信联系",a("作者",href = "http://tx3.netease.com/space-uid-828023.html"),"，谢谢！"),
-               textInput("value","请输入您所关心的装评上限,不小于70000","120000"),
+               textInput("value","请输入您所关心的装评上限,不小于65000","120000"),
                selectInput("school","请选择您要查看的门派",choices = c("所有门派","荒火教","天机营","冰心堂",
                                                              "弈剑听雨阁","翎羽山庄","魍魉","太虚观","龙巫宫",
                                                              "鬼墨","云麓仙居")),
