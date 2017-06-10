@@ -26,7 +26,7 @@ shinyUI(fluidPage(
   h3("神机经武，启运昌隆 —— 神启战场玩家属性数据库",style = "color:white;"),
   h3(a("七星沧海断飞云，九玄罂粟落梨花 —— 79战场玩家属性数据库",href = "http://159.203.121.218/Jacky/79/",target = "_blank",
        style = "color:white;")),
-  h3("七绝仙魔阵，四海夜狼声 —— 74战场玩家属性数据库",style = "color:white;"),
+  h3(a("七绝仙魔阵，四海夜狼声 —— 74战场玩家属性数据库",href = "http://159.203.121.218/Jacky/74/",target = "_blank",style = "color:white;")),
   h3("六朝寒暑空余念，九霄龙吟恨苍天 —— 69战场玩家属性数据库",style = "color:white;"),
   h3("卅载天下多歧路，九死未悔忆初心 —— 39战场玩家属性数据库",style = "color:white;"),
   br(),
