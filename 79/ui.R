@@ -24,6 +24,7 @@ shinyUI(fluidPage(
                             }
                             "))),
   tags$head(includeScript("google-analytics.js")),
+  headerPanel(windowTitle = "79战场数据库",title = ""),
   div(
     h1("七星沧海断飞云，九玄罂粟落梨花 - 79战场数据库"),
     p(a("天下3论坛",href = "http://tx3.netease.com/",stype = "color:red;",target = "_blank"),
