@@ -23,7 +23,7 @@ shinyUI(fluidPage(
     style = "text-align: left;
     color: white;"),
   br(),
-  h3("神机经武，启运昌隆 —— 神启战场玩家属性数据库",style = "color:white;"),
+  h3(a("神机经武，启运昌隆 —— 神启战场玩家属性数据库",href = "http://159.203.121.218/Jacky/80/",target = "_blank",style = "color:white;")),
   h3(a("七星沧海断飞云，九玄罂粟落梨花 —— 79战场玩家属性数据库",href = "http://159.203.121.218/Jacky/79/",target = "_blank",
        style = "color:white;")),
   h3(a("七绝仙魔阵，四海夜狼声 —— 74战场玩家属性数据库",href = "http://159.203.121.218/Jacky/74/",target = "_blank",style = "color:white;")),
