@@ -22,13 +22,13 @@ OD <- function(data,percentage){
 # Output:
 #   Outlier
 Method5 <- function(DATA,begin_date,end_date,p){
-  DATA$stay_date <- as.Date(DATA$stay_date,"%d%b%Y")
+  DATA$date <- as.Date(DATA$date,"%d%b%Y")
   HOTEL <- unique(DATA$hotel)
   DOW <- as.character(unique(DATA$day_of_week))
   if (begin_date > end_date - 1){
     message("Are you kidding me? The start date should be set before the end date!!!")
   } else {
-    data <- DATA[DATA$stay_date < end_date + 1 & DATA$stay_date > begin_date - 1,]
+    data <- DATA[DATA$date < end_date + 1 & DATA$date > begin_date - 1,]
     Outlier <- c()
     for (i in 1:length(HOTEL)){
       PC <- unique(DATA$pc[DATA$hotel == HOTEL[i]])
