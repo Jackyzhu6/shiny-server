@@ -1,8 +1,7 @@
 library(XML)
 library(RCurl)
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 library(rjson)
-options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "Rcurl")))
-credentials$handshake()
 PUBG_player_DATA <- function(Nickname,server,recent){
   uu <- paste("https://pubg.op.gg/user/",Nickname,"?server=",server,sep = "")
   ww <- getURL(uu)
