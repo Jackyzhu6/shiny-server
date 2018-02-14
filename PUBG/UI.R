@@ -1,5 +1,6 @@
 library(shiny)
 shinyUI(fluidPage(
+  tags$head(includeScript("google-analytics.js")),
   tags$head(
     tags$style(HTML("
                     .shiny-output-error-validation {
