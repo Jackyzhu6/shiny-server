@@ -1,6 +1,7 @@
 library(shiny)
 library(XML)
 library(RCurl)
+# options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 library(rjson)
 source("pubg_player_data.R")
 shinyServer(function(input, output) {
