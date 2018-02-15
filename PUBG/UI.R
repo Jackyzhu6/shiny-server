@@ -19,14 +19,30 @@ shinyUI(fluidPage(
     textInput("id","Please input your ID:",""),
     selectInput("server","Please choose the server:",choices = c("na","eu","as","sea","krjp","oc","sa")),
     selectInput("recent","Please choose the period:",choices = c("Most recent season","All historical data")),
-    actionButton("button", "Go")
+    selectInput("advance","Please choose the data you would like to analyze",choices = c("Basic Data","Advanced Data")),
+    actionButton("button", "Go ====>")
   ),
-  mainPanel(
-    tabsetPanel(
-      tabPanel("Hightlights",htmlOutput("highlights")),
-      tabPanel("Kill Trend",plotOutput("killplot")),
-      tabPanel("Headshot% Trend",plotOutput("headshotplot")),
-      tabPanel("Damage Trend",plotOutput("damageplot"))
-    )
-  )
+  
+  conditionalPanel(
+    condition = "input.advance == 'Basic Data'",
+    mainPanel(
+      tabsetPanel(
+        tabPanel("Hightlights",htmlOutput("highlights1")),
+        tabPanel("Kill Trend",plotOutput("killplot")),
+        tabPanel("Headshot% Trend",plotOutput("headshotplot")),
+        tabPanel("Damage Trend",plotOutput("damageplot")),
+        tabPanel("Rank Trend",plotOutput("rankplot")),
+        tabPanel("Survive Time Trend",plotOutput("surviveplot")),
+        tabPanel("Score Trend(Only for the most recent season)",plotOutput("scoreplot"))
+      )
+    )),
+  conditionalPanel(
+    condition = "input.advance == 'Advanced Data'",
+    mainPanel(
+      tabsetPanel(
+        tabPanel("Hightlights",htmlOutput("highlights")),
+        tabPanel("Weapon Frequency",plotOutput("weaponplot")),
+        tabPanel("Highly Significant Cheaters List",dataTableOutput("cheaters"))
+      )
+    ))
 ))
