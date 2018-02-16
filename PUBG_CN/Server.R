@@ -298,8 +298,8 @@ shinyServer(function(input, output) {
       for (j in 1:dim(mode)[1]){
         kill[j] <- mean(mode$kill[(dim(mode)[1] - j + 1):dim(mode)[1]])
       }
-      plot(kill,type = "l",col = i,xlab = "时间",ylab = "场均击杀",xaxt = 'n',
-           main = paste("比赛模式:",as.character(mode_list$match_mode[i]),",","队伍人数:",as.character(mode_list$queue_size[i])))
+      plot(kill,type = "l",col = i,xlab = "time",ylab = "Average Kill",xaxt = 'n',
+           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
@@ -317,8 +317,8 @@ shinyServer(function(input, output) {
           headshot[j] <- sum(mode$headshot_kill[(dim(mode)[1] - j + 1):dim(mode)[1]])/sum(mode$kill[(dim(mode)[1] - j + 1):dim(mode)[1]])
         }
       }
-      plot(headshot,type = "l",col = i,xlab = "时间",ylab = "爆头率",xaxt = 'n',
-           main = paste("比赛模式:",as.character(mode_list$match_mode[i]),",","队伍人数:",as.character(mode_list$queue_size[i])))
+      plot(headshot,type = "l",col = i,xlab = "time",ylab = "Headshot%",xaxt = 'n',
+           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
@@ -332,8 +332,8 @@ shinyServer(function(input, output) {
       for (j in 1:dim(mode)[1]){
         damage[j] <- mean(mode$damage[(dim(mode)[1] - j + 1):dim(mode)[1]])
       }
-      plot(damage,type = "l",col = i,xlab = "时间",ylab = "场均伤害",xaxt = 'n',
-           main = paste("比赛模式:",as.character(mode_list$match_mode[i]),",","队伍人数:",as.character(mode_list$queue_size[i])))
+      plot(damage,type = "l",col = i,xlab = "time",ylab = "Damage",xaxt = 'n',
+           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
@@ -347,26 +347,26 @@ shinyServer(function(input, output) {
       for (j in 1:dim(mode)[1]){
         rank[j] <- mean(mode$player_rank[(dim(mode)[1] - j + 1):dim(mode)[1]])
       }
-      plot(rank,type = "l",col = i,xlab = "时间",ylab = "场均排名",xaxt = 'n',
-           main = paste("比赛模式:",as.character(mode_list$match_mode[i]),",","队伍人数:",as.character(mode_list$queue_size[i])))
+      plot(rank,type = "l",col = i,xlab = "time",ylab = "Average Rank",xaxt = 'n',
+           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
   
-  # output$rankplot <- renderPlot({
-  #   mode_list <- unique(result1()$general_data[,5:6])
-  #   par(mfrow = c(ceiling(dim(mode_list)[1]/2),2))
-  #   for (i in 1:dim(mode_list)[1]){
-  #     mode <- result1()$general_data[result1()$general_data$match_mode == mode_list$match_mode[i] & result1()$general_data$queue_size == mode_list$queue_size[i],]
-  #     rank <- c()
-  #     for (j in 1:dim(mode)[1]){
-  #       rank[j] <- mean(mode$player_rank[(dim(mode)[1] - j + 1):dim(mode)[1]])
-  #     }
-  #     plot(rank,type = "l",col = i,xlab = "time",ylab = "Average Rank",xaxt = 'n',
-  #          main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
-  #     axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
-  #   }
-  # },height = 600, width = 800)
+  output$rankplot <- renderPlot({
+    mode_list <- unique(result1()$general_data[,5:6])
+    par(mfrow = c(ceiling(dim(mode_list)[1]/2),2))
+    for (i in 1:dim(mode_list)[1]){
+      mode <- result1()$general_data[result1()$general_data$match_mode == mode_list$match_mode[i] & result1()$general_data$queue_size == mode_list$queue_size[i],]
+      rank <- c()
+      for (j in 1:dim(mode)[1]){
+        rank[j] <- mean(mode$player_rank[(dim(mode)[1] - j + 1):dim(mode)[1]])
+      }
+      plot(rank,type = "l",col = i,xlab = "time",ylab = "Average Rank",xaxt = 'n',
+           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
+      axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
+    }
+  },height = 600, width = 800)
   
   output$surviveplot <- renderPlot({
     mode_list <- unique(result1()$general_data[,5:6])
@@ -377,8 +377,8 @@ shinyServer(function(input, output) {
       for (j in 1:dim(mode)[1]){
         survive[j] <- mean(mode$survive_time[(dim(mode)[1] - j + 1):dim(mode)[1]])
       }
-      plot(survive,type = "l",col = i,xlab = "时间",ylab = "场均存活时间",xaxt = 'n',
-           main = paste("比赛模式:",as.character(mode_list$match_mode[i]),",","队伍人数:",as.character(mode_list$queue_size[i])))
+      plot(survive,type = "l",col = i,xlab = "time",ylab = "Average Survive Trend",xaxt = 'n',
+           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
@@ -392,8 +392,8 @@ shinyServer(function(input, output) {
       for (j in 1:dim(mode)[1]){
         score[j] <- mode$score[dim(mode)[1] - j + 1]
       }
-      plot(score,type = "l",col = i,xlab = "时间",ylab = "分数",xaxt = 'n',
-           main = paste("比赛模式:",as.character(mode_list$match_mode[i]),",","队伍人数:",as.character(mode_list$queue_size[i])))
+      plot(score,type = "l",col = i,xlab = "time",ylab = "Average Survive Trend",xaxt = 'n',
+           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
