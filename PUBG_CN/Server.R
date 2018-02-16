@@ -225,14 +225,14 @@ shinyServer(function(input, output) {
     weapon <- weapon[weapon$Freq != 0,]
     weapon <- weapon[order(-weapon$Freq)[1:min(10,dim(weapon)[1])],]
     pie3D(weapon$Freq, labels = paste(weapon$Var1,"\n",weapon$Freq,sep = ""),explode=0.05,
-          main="武器击杀统计")
+          main="Weapon: Frequency of kill")
     vic_info <- result2()$match_info[result2()$match_info$victim_name == input$id,]
     weapon <- data.frame(table(vic_info$description))
     weapon <- weapon[weapon$Var1 != "Down and Out",]
     weapon <- weapon[weapon$Freq != 0,]
     weapon <- weapon[order(-weapon$Freq)[1:min(10,dim(weapon)[1])],]
     pie3D(weapon$Freq, labels = paste(weapon$Var1,"\n",weapon$Freq,sep = ""),explode=0.05,
-          main="被武器击杀统计")
+          main="Weapon: Frequency of death")
   })
   
   output$cheaters <- renderDataTable({
