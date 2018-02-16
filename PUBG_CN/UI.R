@@ -17,7 +17,7 @@ shinyUI(fluidPage(
   sidebarPanel(
     textInput("id","请输入你要查询玩家的昵称:",""),
     selectInput("server","请选择服务器:",choices = c("na","eu","as","sea","krjp","oc","sa")),
-    selectInput("recent","请选择要查询的时间段:",choices = c("Most recent season","All historical data")),
+    selectInput("recent","请选择要查询的时间段:",choices = c("最近赛季","正式版以来所有数据")),
     selectInput("advance","请选择分析方式",choices = c("基础数据","高级数据")),
     actionButton("button", "Go ====>")
   ),

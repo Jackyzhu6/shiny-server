@@ -10,10 +10,10 @@ shinyServer(function(input, output) {
   nog <- eventReactive(input$button,{
     Nickname <- input$id
     server <- input$server
-    if (input$recent == "Most recent season"){
+    if (input$recent == "????????????"){
       recent <- 1
     }
-    if (input$recent == "All historical data"){
+    if (input$recent == "???????????????????????????"){
       recent <- 0
     }
     uu <- paste("https://pubg.op.gg/user/",Nickname,"?server=",server,sep = "")
@@ -45,10 +45,10 @@ shinyServer(function(input, output) {
   result1 <- eventReactive(input$button,{
     Nickname <- input$id
     server <- input$server
-    if (input$recent == "Most recent season"){
+    if (input$recent == "????????????"){
       recent <- 1
     }
-    if (input$recent == "All historical data"){
+    if (input$recent == "???????????????????????????"){
       recent <- 0
     }
     
@@ -140,75 +140,77 @@ shinyServer(function(input, output) {
     }
     validate(
       need(is.null(general_data) == FALSE, 
-           message = "An Error Happens, Possible Reason:\n1. ID does not exist.\n2. ID has been banned by PUBG.\n3. No match data in this server.")
+           message = "???????????????, ???????????????:\n1. ???????????????.\n2. ????????????????????????.\n3. ?????????????????????????????????.")
     )
     return(list(general_data = general_data))
   })
   
   result2 <- eventReactive(input$button,{
-    if (input$recent == "Most recent season"){
+    if (input$recent == "????????????"){
       recent1 <- 1
     }
-    if (input$recent == "All historical data"){
+    if (input$recent == "???????????????????????????"){
       recent1 <- 0
     }
     Infile <- PUBG_player_DATA(input$id,input$server,recent1)
     validate(
       need(is.null(Infile$general_data) == FALSE, 
-           message = "An Error Happens, Possible Reason:\n1. ID does not exist.\n2. ID has been banned by PUBG.\n3. No match data in this server.")
+           message = "???????????????, ???????????????:\n1. ???????????????.\n2. ????????????????????????.\n3. ?????????????????????????????????.")
     )
     return(Infile)
   })
   
   
   output$highlights = renderUI({
-    withProgress(message = 'Parsing Data...', value = 1/8, {
-      incProgress(1/8, detail = paste("Please wait for about ",1.1*nog()," seconds."))
+    withProgress(message = '????????????...', value = 1/8, {
+      incProgress(1/8, detail = paste("???????????????",1.1*nog(),"???."))
       Sys.sleep(0.1)
       Map_p <- table(result2()$general_data$maps)
       Map_p <- Map_p/sum(Map_p)
-      Map_prob <- paste("Map Probability: ",input$id," played on ",names(Map_p)[1]," with the probability of ",round((Map_p[1]*100),2),"%",","
-                        ,input$id," played on ",names(Map_p)[2]," with the probability of ",round((Map_p[2]*100),2),"%",sep = "")
+      Map_prob <- paste("??????????????????:",input$id,"?????????",names(Map_p)[1],"?????????????????????",round((Map_p[1]*100),2),"%",","
+                        ,input$id,"?????????",names(Map_p)[2],"?????????????????????",round((Map_p[2]*100),2),"%",sep = "")
       incProgress(1/8, detail = paste("Most kill"))
       Sys.sleep(0.1)
       
       distance <- result2()$match_info$distance
       distance <- as.numeric(as.character(distance))
       cheater_info <- unique(result2()$match_info$killer_name[which(distance > 600)])
-      hacker <- paste("About hackers: Among all the ",nog()," matches, ",input$id," met ",length(cheater_info)," highly significant cheaters.",sep = "")
+      hacker <- paste("???????????????????????????: ???",nog(),"????????????, ",input$id,"????????????",length(cheater_info),"?????????????????????.",sep = "")
      
       kill_info <- result2()$match_info[result2()$match_info$killer_name == input$id,]
       lk <- max(as.numeric(as.character(kill_info$distance)),na.rm = TRUE)
-      longest_kill <- paste("Longest Kill: ",input$id," killed ",kill_info$victim_name[kill_info$distance == lk][1]," with ",kill_info$description[kill_info$distance == lk][1]," from ",lk,
-                            " meters away on ",
-                            as.character(result2()$general_data$gametime[result2()$general_data$match_id == kill_info$match_id[kill_info$distance == lk][1]]))
+      longest_kill <- paste("??????????????????: ",input$id,"???",
+                            as.character(result2()$general_data$gametime[result2()$general_data$match_id == kill_info$match_id[kill_info$distance == lk][1]])
+                            ,"???",kill_info$description[kill_info$distance == lk][1],"???",lk,
+                            "???????????????",kill_info$victim_name[kill_info$distance == lk][1])
       incProgress(1/8, detail = paste("kill/death information"))
       Sys.sleep(0.1)
       vic_info <- result2()$match_info[result2()$match_info$victim_name == input$id,]
       lvic <- max(as.numeric(as.character(vic_info$distance)),na.rm = TRUE)
-      longest_death <- paste("Longest death: ",input$id," was killed by ",vic_info$killer_name[vic_info$distance == lvic][1]," with ",vic_info$description[vic_info$distance == lvic][1]," from ",
-                             lvic," meters away on ",
-                             as.character(result2()$general_data$gametime[result2()$general_data$match_id == vic_info$match_id[vic_info$distance == lvic][1]]))
+      longest_death <- paste("?????????????????????: ",input$id,"???",
+                             as.character(result2()$general_data$gametime[result2()$general_data$match_id == vic_info$match_id[vic_info$distance == lvic][1]]),
+                             "???",vic_info$killer_name[vic_info$distance == lvic][1],"???",vic_info$description[vic_info$distance == lvic][1],"???",
+                             lvic,"???????????????. ")
       incProgress(1/8, detail = paste("Weapon kill"))
       Sys.sleep(0.1)
       w_kill <- table(kill_info$description[kill_info$description != "Down and Out"])[which.max(table(kill_info$description[kill_info$description != "Down and Out"]))[1]]
-      weapon_kill <- paste("Most used weapon for killing: ",input$id," has used ",names(w_kill)," killing ",as.numeric(w_kill)," players among all matches.")
+      weapon_kill <- paste("???????????????????????????: ",input$id,"?????????????????????",names(w_kill),"?????????",as.numeric(w_kill),"?????????.")
       incProgress(1/8, detail = paste("Weapon killed"))
       Sys.sleep(0.1)
       w_vic <- table(vic_info$description[vic_info$description != "Down and Out"])[which.max(table(vic_info$description[vic_info$description != "Down and Out"]))[1]]
-      weapon_vic <- paste("Killed by most used weapon : ",input$id," has been killed by ",names(w_vic)," by ",as.numeric(w_vic)," players among all matches.")
+      weapon_vic <- paste("????????????????????????: ",input$id,"?????????????????????",names(w_vic),"?????????",as.numeric(w_vic),"???.")
       incProgress(1/8, detail = paste("Control player"))
       Sys.sleep(0.1)
       control <- table(kill_info$victim_name)
       control <- control[names(control)%in% c("",input$id,"#unknown") == FALSE]
-      control_player <- paste("Player who is controlled by you: ",input$id," killed ",names(control[which.max(control)])," ",as.numeric(control[which.max(control)]),
-                              " times among all matches.")
+      control_player <- paste("?????????????????????: ",input$id,"???????????????????????????",names(control[which.max(control)]),"??????",as.numeric(control[which.max(control)]),
+                              "???.")
       incProgress(1/8, detail = paste("Controlled by"))
       Sys.sleep(0.1)
       controlled <- table(vic_info$killer_name)
       controlled <- controlled[names(controlled)%in% c("",input$id,"#unknown") == FALSE]
-      controlled_player <- paste("Player who controll you: ",input$id," is killed by ",names(controlled[which.max(controlled)])," ",as.numeric(controlled[which.max(controlled)]),
-                                 " times among all matches.")
+      controlled_player <- paste("??????????????????: ",input$id,"?????????????????????",names(controlled[which.max(controlled)]),"???????????????",as.numeric(controlled[which.max(controlled)]),
+                                 "???.")
     })
     HTML(paste(Map_prob,longest_kill,longest_death,weapon_kill,weapon_vic,
                control_player,controlled_player, hacker,sep = '<br/><br/>'))
@@ -223,14 +225,14 @@ shinyServer(function(input, output) {
     weapon <- weapon[weapon$Freq != 0,]
     weapon <- weapon[order(-weapon$Freq)[1:min(10,dim(weapon)[1])],]
     pie3D(weapon$Freq, labels = paste(weapon$Var1,"\n",weapon$Freq,sep = ""),explode=0.05,
-          main="Weapon: Frequency of Kill")
+          main="??????????????????")
     vic_info <- result2()$match_info[result2()$match_info$victim_name == input$id,]
     weapon <- data.frame(table(vic_info$description))
     weapon <- weapon[weapon$Var1 != "Down and Out",]
     weapon <- weapon[weapon$Freq != 0,]
     weapon <- weapon[order(-weapon$Freq)[1:min(10,dim(weapon)[1])],]
     pie3D(weapon$Freq, labels = paste(weapon$Var1,"\n",weapon$Freq,sep = ""),explode=0.05,
-          main="Weapon: Frequency of death")
+          main="?????????????????????")
   })
   
   output$cheaters <- renderDataTable({
@@ -257,27 +259,31 @@ shinyServer(function(input, output) {
   
   
   output$highlights1 = renderUI({
-    withProgress(message = 'Parsing Data...', value = 1/6, {
-      incProgress(1/6, detail = paste("Please wait for about ",0.015*nog()," seconds."))
+    withProgress(message = '????????????...', value = 1/6, {
+      incProgress(1/6, detail = paste("???????????????",0.015*nog(),"???."))
       Sys.sleep(0.2)
-      most_kill <- paste("Most Kill: ",input$id," killed ",max(result1()$general_data$kill),
-                         " players on ",as.character(result1()$general_data$gametime[which.max(result1()$general_data$kill)]),sep = "")
+      most_kill <- paste("????????????: ",input$id,"???",as.character(result1()$general_data$gametime[which.max(result1()$general_data$kill)]), "?????????",max(result1()$general_data$kill),
+                         "?????????",sep = "")
       incProgress(1/6, detail = paste("Most headshot"))
       Sys.sleep(0.2)
-      most_headshot <- paste("Most headshot: ",input$id," killed ",max(result1()$general_data$headshot_kill),
-                             " players with headshot on ",as.character(result1()$general_data$gametime[which.max(result1()$general_data$headshot_kill)]),sep = "")
+      most_headshot <- paste("???????????????: ",input$id,"???",as.character(result1()$general_data$gametime[which.max(result1()$general_data$headshot_kill)]),
+                             "??????????????????",max(result1()$general_data$headshot_kill),
+                             "?????????",sep = "")
       incProgress(1/6, detail = paste("Most Damage"))
       Sys.sleep(0.2)
-      most_damage <- paste("Most Damage: ",input$id," contributed a damage of ",max(result1()$general_data$damage),
-                           " on ",as.character(result1()$general_data$gametime[which.max(result1()$general_data$damage)]),sep = "")
+      most_damage <- paste("????????????: ",input$id,"???",as.character(result1()$general_data$gametime[which.max(result1()$general_data$damage)])
+                           ,"?????????",max(result1()$general_data$damage),
+                           "?????????",sep = "")
       incProgress(1/6, detail = paste("Most Walk Distance"))
       Sys.sleep(0.2)
-      most_walk_distance <- paste("Most walking distance: ",input$id," walked ",max(result1()$general_data$walk_distance),
-                                  " meters on ",as.character(result1()$general_data$gametime[which.max(result1()$general_data$walk_distance)]),sep = "")
+      most_walk_distance <- paste("??????????????????: ",input$id,"???",as.character(result1()$general_data$gametime[which.max(result1()$general_data$walk_distance)])
+                                  ,"???????????????",max(result1()$general_data$walk_distance),
+                                  "???.",sep = "")
       incProgress(1/6, detail = paste("Most ride distance"))
       Sys.sleep(0.2)
-      most_ride_distance <- paste("Most riding distance: ",input$id," rided ",max(result1()$general_data$ride_distance),
-                                  " meters on ",as.character(result1()$general_data$gametime[which.max(result1()$general_data$ride_distance)]),sep = "")
+      most_ride_distance <- paste("??????????????????: ",input$id,"???",as.character(result1()$general_data$gametime[which.max(result1()$general_data$ride_distance)])
+                                  ,"???????????????",max(result1()$general_data$ride_distance),
+                                  "???.",sep = "")
     })
     HTML(paste(most_kill,most_headshot,most_damage,most_walk_distance,most_ride_distance, sep = '<br/><br/>'))
     
@@ -292,8 +298,8 @@ shinyServer(function(input, output) {
       for (j in 1:dim(mode)[1]){
         kill[j] <- mean(mode$kill[(dim(mode)[1] - j + 1):dim(mode)[1]])
       }
-      plot(kill,type = "l",col = i,xlab = "time",ylab = "Average Kill",xaxt = 'n',
-           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
+      plot(kill,type = "l",col = i,xlab = "??????",ylab = "????????????",xaxt = 'n',
+           main = paste("????????????:",as.character(mode_list$match_mode[i]),",","????????????:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
@@ -311,8 +317,8 @@ shinyServer(function(input, output) {
           headshot[j] <- sum(mode$headshot_kill[(dim(mode)[1] - j + 1):dim(mode)[1]])/sum(mode$kill[(dim(mode)[1] - j + 1):dim(mode)[1]])
         }
       }
-      plot(headshot,type = "l",col = i,xlab = "time",ylab = "Headshot%",xaxt = 'n',
-           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
+      plot(headshot,type = "l",col = i,xlab = "??????",ylab = "?????????",xaxt = 'n',
+           main = paste("????????????:",as.character(mode_list$match_mode[i]),",","????????????:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
@@ -326,8 +332,8 @@ shinyServer(function(input, output) {
       for (j in 1:dim(mode)[1]){
         damage[j] <- mean(mode$damage[(dim(mode)[1] - j + 1):dim(mode)[1]])
       }
-      plot(damage,type = "l",col = i,xlab = "time",ylab = "Damage",xaxt = 'n',
-           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
+      plot(damage,type = "l",col = i,xlab = "??????",ylab = "????????????",xaxt = 'n',
+           main = paste("????????????:",as.character(mode_list$match_mode[i]),",","????????????:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
@@ -341,26 +347,26 @@ shinyServer(function(input, output) {
       for (j in 1:dim(mode)[1]){
         rank[j] <- mean(mode$player_rank[(dim(mode)[1] - j + 1):dim(mode)[1]])
       }
-      plot(rank,type = "l",col = i,xlab = "time",ylab = "Average Rank",xaxt = 'n',
-           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
+      plot(rank,type = "l",col = i,xlab = "??????",ylab = "????????????",xaxt = 'n',
+           main = paste("????????????:",as.character(mode_list$match_mode[i]),",","????????????:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
   
-  output$rankplot <- renderPlot({
-    mode_list <- unique(result1()$general_data[,5:6])
-    par(mfrow = c(ceiling(dim(mode_list)[1]/2),2))
-    for (i in 1:dim(mode_list)[1]){
-      mode <- result1()$general_data[result1()$general_data$match_mode == mode_list$match_mode[i] & result1()$general_data$queue_size == mode_list$queue_size[i],]
-      rank <- c()
-      for (j in 1:dim(mode)[1]){
-        rank[j] <- mean(mode$player_rank[(dim(mode)[1] - j + 1):dim(mode)[1]])
-      }
-      plot(rank,type = "l",col = i,xlab = "time",ylab = "Average Rank",xaxt = 'n',
-           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
-      axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
-    }
-  },height = 600, width = 800)
+  # output$rankplot <- renderPlot({
+  #   mode_list <- unique(result1()$general_data[,5:6])
+  #   par(mfrow = c(ceiling(dim(mode_list)[1]/2),2))
+  #   for (i in 1:dim(mode_list)[1]){
+  #     mode <- result1()$general_data[result1()$general_data$match_mode == mode_list$match_mode[i] & result1()$general_data$queue_size == mode_list$queue_size[i],]
+  #     rank <- c()
+  #     for (j in 1:dim(mode)[1]){
+  #       rank[j] <- mean(mode$player_rank[(dim(mode)[1] - j + 1):dim(mode)[1]])
+  #     }
+  #     plot(rank,type = "l",col = i,xlab = "time",ylab = "Average Rank",xaxt = 'n',
+  #          main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
+  #     axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
+  #   }
+  # },height = 600, width = 800)
   
   output$surviveplot <- renderPlot({
     mode_list <- unique(result1()$general_data[,5:6])
@@ -371,8 +377,8 @@ shinyServer(function(input, output) {
       for (j in 1:dim(mode)[1]){
         survive[j] <- mean(mode$survive_time[(dim(mode)[1] - j + 1):dim(mode)[1]])
       }
-      plot(survive,type = "l",col = i,xlab = "time",ylab = "Average Survive Trend",xaxt = 'n',
-           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
+      plot(survive,type = "l",col = i,xlab = "??????",ylab = "??????????????????",xaxt = 'n',
+           main = paste("????????????:",as.character(mode_list$match_mode[i]),",","????????????:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
@@ -386,8 +392,8 @@ shinyServer(function(input, output) {
       for (j in 1:dim(mode)[1]){
         score[j] <- mode$score[dim(mode)[1] - j + 1]
       }
-      plot(score,type = "l",col = i,xlab = "time",ylab = "Average Survive Trend",xaxt = 'n',
-           main = paste("Match mode:",as.character(mode_list$match_mode[i]),",","Queue Size:",as.character(mode_list$queue_size[i])))
+      plot(score,type = "l",col = i,xlab = "??????",ylab = "??????",xaxt = 'n',
+           main = paste("????????????:",as.character(mode_list$match_mode[i]),",","????????????:",as.character(mode_list$queue_size[i])))
       axis(side = 1, at = 1:dim(mode)[1],labels = mode$gametime[dim(mode)[1]:1])
     }
   },height = 600, width = 800)
