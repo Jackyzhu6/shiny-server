@@ -1,10 +1,11 @@
 library(XML)
 library(RCurl)
+library(httr)
 # options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 library(rjson)
 PUBG_player_DATA <- function(Nickname,server,recent){
   uu <- paste("https://pubg.op.gg/user/",Nickname,"?server=",server,sep = "")
-  ww <- getURL(uu)
+  ww <- GET(uu)
   pagetree <- htmlTreeParse(ww, error=function(...){}, useInternalNodes = TRUE, encoding = "UTF-8")
   
   user_id <- unique(unlist(xpathSApply(pagetree,"//div", xmlGetAttr,'data-u-user_id')))
@@ -35,7 +36,7 @@ PUBG_player_DATA <- function(Nickname,server,recent){
     gametime <- as.POSIXct(gametime,format = "%Y-%m-%d %H:%M:%S")
     match_id <- sapply(ww$matches$items,function(x) x$match_id)
     match_mode <- sapply(ww$matches$items,function(x) x$mode)
-    queue_size <- sapply(ww$matches$items,function(x) x$queue_size)
+    queue_size <- sapply(ww$matches$items,function(x) if(is.null(x$queue_size)) {0} else {x$queue_size})
     damage <- sapply(ww$matches$items,function(x) x$participant$stats$combat$damage$damage_dealt)
     kill <- sapply(ww$matches$items,function(x) x$participant$stats$combat$kda$kills)
     headshot_kill <- sapply(ww$matches$items,function(x) x$participant$stats$combat$kda$headshot_kills)
@@ -64,7 +65,7 @@ PUBG_player_DATA <- function(Nickname,server,recent){
         gametime <- as.POSIXct(gametime,format = "%Y-%m-%d %H:%M:%S")
         match_id <- sapply(ww$matches$items,function(x) x$match_id)
         match_mode <- sapply(ww$matches$items,function(x) x$mode)
-        queue_size <- sapply(ww$matches$items,function(x) x$queue_size)
+        queue_size <- sapply(ww$matches$items,function(x) if(is.null(x$queue_size)) {0} else {x$queue_size})
         damage <- sapply(ww$matches$items,function(x) x$participant$stats$combat$damage$damage_dealt)
         kill <- sapply(ww$matches$items,function(x) x$participant$stats$combat$kda$kills)
         headshot_kill <- sapply(ww$matches$items,function(x) x$participant$stats$combat$kda$headshot_kills)
@@ -85,7 +86,7 @@ PUBG_player_DATA <- function(Nickname,server,recent){
     score <- rep(0,num_of_game)
     for (i in 1:most_recent){
       xx <- general_data_recent[general_data_recent$match_mode == general_data_recent$match_mode[i] & general_data_recent$queue_size == general_data_recent$queue_size[i],]
-      score[i] <- 1200 + sum(xx[xx$gametime < general_data_recent$gametime[i],]$score_diff)
+      score[i] <- 1700 + sum(xx[xx$gametime < general_data_recent$gametime[i],]$score_diff)
     }
     general_data <- data.frame(player_id = rep(Nickname,num_of_game),score,general_data)
   }
