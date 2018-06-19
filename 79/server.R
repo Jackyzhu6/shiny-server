@@ -9,17 +9,17 @@ dataname <- c("英雄榜","昵称","大区","服务器","等级","门派","势�
 
 
 shinyServer(function(input, output) {
-    paixu <- reactive({
-      validate(
-        need(as.numeric(input$value) > 75000,
-             message  = "请在装评上限输入75000以上的数字")
-      )
-       data <- data[data[,8] < as.numeric(input$value),]
-      if (input$school == "所有门派"){
-        data <- data
-      } else {
-        data <- data[data[,6] == input$school,]
-      }
+  paixu <- reactive({
+    validate(
+      need(as.numeric(input$value) > 75000,
+           message  = "请在装评上限输入75000以上的数字")
+    )
+    data <- data[data[,8] < as.numeric(input$value),]
+    if (input$school == "所有门派"){
+      data <- data
+    } else {
+      data <- data[data[,6] == input$school,]
+    }
     n <- which(dataname == input$sort)
     result <- data[order(-data[,n])[1:50],c(1:6,n)]
     result[,1] <- paste0("<a href='",result[,1], "' target='_blank'>点击查看英雄榜</a>")
@@ -28,63 +28,63 @@ shinyServer(function(input, output) {
     result
   }
   )
-    personal <- reactive({
-      validate(
-        need(as.numeric(input$value) > 75000,
-             message  = "请在装评上限输入75000以上的数字")
-      )
-      data <- data[data[,8] < as.numeric(input$value),]
-      if (input$school == "所有门派"){
-        data <- data
-      } else {
-        data <- data[data[,6] == input$school,]
-      }
-      validate(
-        need(unlist(strsplit(input$similarity,split = "http://bang.tx3.163.com/bang/role/"))[1] == "" &
-               input$similarity != "http://bang.tx3.163.com/bang/role/",
-             message  = "该玩家不存在或您输入的英雄榜不正确")
-      )
-      validate(
-        need(input$similarity%in%data[,1],message = "您不是该门派玩家或您并不在此装评选择范围内")
-      )
-      n <- which(dataname == input$sort)
-      data_sort <- data[order(-data[,n]),]
-      m <- which(data_sort[,1] == input$similarity)
-      begin <- ifelse(m-10 > 0,m-10,1)
-      end <- ifelse(m + 10 < dim(data_sort)[1],m+10,dim(data_sort)[1])
-      result <- data_sort[begin:end,c(1:6,n)]
-      result[,1] <- paste0("<a href='",result[,1], "' target='_blank'>点击查看英雄榜</a>")
-      result <- cbind(c(begin:end),result)
-      names(result) <- c("排名",dataname[c(1:6,n)])
-      result
-    })
-    
-    personal2 <- reactive({
-      validate(
-        need(as.numeric(input$value) > 75000,
-             message  = "请在装评上限输入75000以上的数字")
-      )
-      data <- data[data[,8] < as.numeric(input$value),]
-      if (input$school == "所有门派"){
-        data <- data
-      } else {
-        data <- data[data[,6] == input$school,]
-      }
-      validate(
-        need(unlist(strsplit(input$similarity,split = "http://bang.tx3.163.com/bang/role/"))[1] == "" &
-               input$similarity != "http://bang.tx3.163.com/bang/role/",
-             message  = "该玩家不存在或您输入的英雄榜不正确")
-      )
-      validate(
-        need(input$similarity%in%data[,1],message = "您不是该门派玩家或您并不在此装评选择范围内")
-      )
-      n <- which(dataname == input$sort)
-      data_sort <- data[order(-data[,n]),]
-      m <- which(data_sort[,1] == input$similarity)
-      nick <- data_sort[m,2]
-      return(paste(nick,"的",input$sort,"排在装备评价",input$value,"以下的",input$school,"第",m,"名",sep = ""))
-    })
-    
+  personal <- reactive({
+    validate(
+      need(as.numeric(input$value) > 75000,
+           message  = "请在装评上限输入75000以上的数字")
+    )
+    data <- data[data[,8] < as.numeric(input$value),]
+    if (input$school == "所有门派"){
+      data <- data
+    } else {
+      data <- data[data[,6] == input$school,]
+    }
+    validate(
+      need(unlist(strsplit(input$similarity,split = "http://bang.tx3.163.com/bang/role/"))[1] == "" &
+             input$similarity != "http://bang.tx3.163.com/bang/role/",
+           message  = "该玩家不存在或您输入的英雄榜不正确")
+    )
+    validate(
+      need(input$similarity%in%data[,1],message = "您不是该门派玩家或您并不在此装评选择范围内")
+    )
+    n <- which(dataname == input$sort)
+    data_sort <- data[order(-data[,n]),]
+    m <- which(data_sort[,1] == input$similarity)
+    begin <- ifelse(m-10 > 0,m-10,1)
+    end <- ifelse(m + 10 < dim(data_sort)[1],m+10,dim(data_sort)[1])
+    result <- data_sort[begin:end,c(1:6,n)]
+    result[,1] <- paste0("<a href='",result[,1], "' target='_blank'>点击查看英雄榜</a>")
+    result <- cbind(c(begin:end),result)
+    names(result) <- c("排名",dataname[c(1:6,n)])
+    result
+  })
+  
+  personal2 <- reactive({
+    validate(
+      need(as.numeric(input$value) > 75000,
+           message  = "请在装评上限输入75000以上的数字")
+    )
+    data <- data[data[,8] < as.numeric(input$value),]
+    if (input$school == "所有门派"){
+      data <- data
+    } else {
+      data <- data[data[,6] == input$school,]
+    }
+    validate(
+      need(unlist(strsplit(input$similarity,split = "http://bang.tx3.163.com/bang/role/"))[1] == "" &
+             input$similarity != "http://bang.tx3.163.com/bang/role/",
+           message  = "该玩家不存在或您输入的英雄榜不正确")
+    )
+    validate(
+      need(input$similarity%in%data[,1],message = "您不是该门派玩家或您并不在此装评选择范围内")
+    )
+    n <- which(dataname == input$sort)
+    data_sort <- data[order(-data[,n]),]
+    m <- which(data_sort[,1] == input$similarity)
+    nick <- data_sort[m,2]
+    return(paste(nick,"的",input$sort,"排在装备评价",input$value,"以下的",input$school,"第",m,"名",sep = ""))
+  })
+  
   distributionplot <- reactive({
     validate(
       need(as.numeric(input$value) > 75000,
@@ -201,7 +201,7 @@ shinyServer(function(input, output) {
   })
   
   
-    
+  
   output$mytable1 <- renderTable(
     paixu()
     , sanitize.text.function = function(x) x)
@@ -210,7 +210,7 @@ shinyServer(function(input, output) {
   )
   output$mytable3 <- renderTable(
     personal()
-   , sanitize.text.function = function(x) x)
+    , sanitize.text.function = function(x) x)
   output$text1 <- renderText(
     personal2()
   )

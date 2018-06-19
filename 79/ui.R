@@ -35,10 +35,10 @@ shinyUI(fluidPage(
     font-family: 'Times New Roman', 'Microsoft YaHei', '微软雅黑';
     text-align: center;
     "),
-    p("最新信息请关注我的",a("新浪微博",href = "http://weibo.com/alexgenius?is_hot=1",target = "_blank"),
-      style = "text-align: right;
+  p("最新信息请关注我的",a("新浪微博",href = "http://weibo.com/alexgenius?is_hot=1",target = "_blank"),
+    style = "text-align: right;
       color: blue;"),
-    p("App版本:2.0",style = "text-align: right;
+  p("App版本:2.0",style = "text-align: right;
       color: blue;"),
   sidebarPanel(id = "personal",
                p("此在线App提取2017年6月9日10点前英雄榜所有75-79级70000装评以上玩家的数据，如果您的号符合上述条件但是
@@ -52,30 +52,27 @@ shinyUI(fluidPage(
                                                                   "手镯二","武器","副手","头冠","肩膀","衣服",
                                                                   "护腕","腰带","下摆","裤子","鞋")),
                selectInput("sort","单项属性排名,显示前50名,请选择属性名称,并在右侧列表中查看",choices = c("装评","修为","敏","力","魂","念","疾","体",
-                                                            "最小物攻","最大物攻","最小法攻","最大法攻","命中",
-                                                            "会心","重击","诛心","御心","万钧","铁壁","人祸","附伤",
-                                                            "疾语","追电","骤雨","物防","法防","生命值","技力值","神明",
-                                                            "回避","知彼","启慧","天灵")),
+                                                                                "最小物攻","最大物攻","最小法攻","最大法攻","命中",
+                                                                                "会心","重击","诛心","御心","万钧","铁壁","人祸","附伤",
+                                                                                "疾语","追电","骤雨","物防","法防","生命值","技力值","神明",
+                                                                                "回避","知彼","启慧","天灵")),
                textInput("similarity","请输入您要查看的玩家英雄榜，即可在右侧查看您的相关属性排名以及附近的20名玩家，
                          并可以相似度列表中查看与您属性最相近和最相反的各20名玩家。注：不输入此项并不影响查看右侧前三项功能",
                          "")
-
+               
                
                
   ),
- 
-               
+  
+  
   
   mainPanel(
-            tabsetPanel(id = "title",
-              tabPanel("分布总览",tableOutput("myplot1")),
-              tabPanel("单项属性排名",tableOutput("mytable1")),
-              tabPanel("您的相关属性排名",textOutput("text1"),tableOutput("mytable3")),
-              tabPanel("相似度",tableOutput("mytable2"))
-            )
-            
+    tabsetPanel(id = "title",
+                tabPanel("分布总览",tableOutput("myplot1")),
+                tabPanel("单项属性排名",tableOutput("mytable1")),
+                tabPanel("您的相关属性排名",textOutput("text1"),tableOutput("mytable3")),
+                tabPanel("相似度",tableOutput("mytable2"))
+    )
+    
   )
     ))
-
-
-
