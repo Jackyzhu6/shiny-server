@@ -38,7 +38,7 @@ shinyUI(fluidPage(
   p("最新信息请关注我的",a("新浪微博",href = "http://weibo.com/alexgenius?is_hot=1",target = "_blank"),
     style = "text-align: right;
     color: blue;"),
-  p("App版本:2.0",style = "text-align: right;
+  p("App版本:3.0",style = "text-align: right;
     color: blue;"),
   sidebarPanel(id = "personal",
                p("此在线App提取2018年6月19日12点前英雄榜所有70-74级65000装评以上玩家的数据，如果您的号符合上述条件但是
