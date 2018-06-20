@@ -186,10 +186,10 @@ shinyServer(function(input, output) {
                "戒指二","裤子","项链","玉佩","鞋")
     final <- data.frame(t(result), stringsAsFactors = FALSE)
     names(final) <- names
-    final_data <- as.numeric(final[,7:35])
+    final_data <- as.numeric(final[,7:34])
     sim <- c()
     for (i in 1:dim(data)[1]){
-      sim[i] <- cor(as.numeric(data[i,10:38]),final_data)
+      sim[i] <- cor(as.numeric(data[i,10:37]),final_data)
     }
     small <- order(sim)[1:20]
     large <- order(-sim)[1:20]
