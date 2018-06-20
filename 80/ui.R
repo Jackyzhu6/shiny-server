@@ -38,12 +38,12 @@ shinyUI(fluidPage(
   p("最新信息请关注我的",a("新浪微博",href = "http://weibo.com/alexgenius?is_hot=1",target = "_blank"),
     style = "text-align: right;
     color: blue;"),
-  p("App版本:2.0",style = "text-align: right;
+  p("App版本:3.0",style = "text-align: right;
     color: blue;"),
   sidebarPanel(id = "personal",
-               p("此在线App提取2017年6月11日6点前英雄榜所有80级80000装评以上玩家的数据，如果您的号符合上述条件但是
+               p("此在线App提取2017年6月20日6点前英雄榜所有80级80000装评以上玩家的数据，如果您的号符合上述条件但是
                  不在列表中，请私信联系",a("作者",href = "http://tx3.netease.com/space-uid-828023.html"),"，谢谢！"),
-               textInput("value","请输入您所关心的装评上限,不小于85000","150000"),
+               textInput("value","请输入您所关心的装评上限,不小于85000","180000"),
                selectInput("school","请选择您要查看的门派",choices = c("所有门派","荒火教","天机营","冰心堂",
                                                              "弈剑听雨阁","翎羽山庄","魍魉","太虚观","龙巫宫",
                                                              "鬼墨","云麓仙居","幽篁国")),
