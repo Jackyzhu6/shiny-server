@@ -1,5 +1,5 @@
 library(shiny)
-run_status <- read.table("run_status.txt",header = TRUE, stringsAsFactors = FALSE)
+run_status <- read.csv("run_status.csv",header = TRUE, stringsAsFactors = FALSE)
 ddate <- as.character(run_status$end_time)
 shinyUI(fluidPage(
   tags$head(includeScript("google-analytics.js")),
