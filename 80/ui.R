@@ -1,4 +1,6 @@
 library(shiny)
+run_status <- read.table("run_status.txt",header = TRUE, stringsAsFactors = FALSE)
+ddate <- as.character(run_status$end_time)
 shinyUI(fluidPage(
   tags$head(includeScript("google-analytics.js")),
   tags$head(tags$style(HTML("
@@ -41,8 +43,8 @@ shinyUI(fluidPage(
   p("App版本:3.0",style = "text-align: right;
     color: blue;"),
   sidebarPanel(id = "personal",
-               p("此在线App提取2018年6月20日6点前英雄榜所有80级80000装评以上玩家的数据，如果您的号符合上述条件但是
-                 不在列表中，请私信联系",a("作者",href = "http://tx3.netease.com/space-uid-828023.html"),"，谢谢！"),
+               p(paste("此在线App提取",ddate,"前英雄榜所有80级80000装评以上玩家的数据，如果您的号符合上述条件但是
+                 不在列表中，请私信联系",sep = ""),a("作者",href = "http://tx3.netease.com/space-uid-828023.html"),"，谢谢！"),
                textInput("value","请输入您所关心的装评上限,不小于85000","180000"),
                selectInput("school","请选择您要查看的门派",choices = c("所有门派","荒火教","天机营","冰心堂",
                                                              "弈剑听雨阁","翎羽山庄","魍魉","太虚观","龙巫宫",
