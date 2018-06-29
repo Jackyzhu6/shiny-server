@@ -43,7 +43,7 @@ shinyUI(fluidPage(
   p("App版本:3.0",style = "text-align: right;
     color: blue;"),
   sidebarPanel(id = "personal",
-               p(paste("此在线App提取",ddate,"前英雄榜所有79级70000装评以上玩家的数据，如果您的号符合上述条件但是
+               p(paste("此在线App提取",ddate,"前英雄榜所有74级65000装评以上玩家的数据，如果您的号符合上述条件但是
                  不在列表中，请私信联系",sep = ""),a("作者",href = "http://tx3.netease.com/space-uid-828023.html"),"，谢谢！"),
                textInput("value","请输入您所关心的装评上限,不小于70000","120000"),
                selectInput("school","请选择您要查看的门派",choices = c("所有门派","荒火教","天机营","冰心堂",
