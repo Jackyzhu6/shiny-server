@@ -1,6 +1,6 @@
 library(shiny)
 library(XML)
-data <- read.table("data_74_20180620.txt",header = TRUE,stringsAsFactors = FALSE)
+data <- read.table("data_most_recent.txt",header = TRUE,stringsAsFactors = FALSE)
 dataname <- c("英雄榜","昵称","大区","服务器","等级","门派","势力","装评","修为","力","魂","体","敏","疾","念","最小物攻","最大物攻","最小法攻",
               "最大法攻","命中","会心","附伤","重击","诛心","御心","万钧","铁壁","人祸","疾语",
               "追电","骤雨","物防","法防","生命值","技力值","神明","回避","知彼","耳环一","头冠","耳环二",
